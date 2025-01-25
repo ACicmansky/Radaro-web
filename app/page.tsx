@@ -1,9 +1,8 @@
 import { Navigation } from "@/components/Navigation"
-import { Header } from "@/components/Header"
 import { ProjectCard } from "@/components/ProjectCard"
 import { About } from "@/components/About"
-import { PriceList } from "@/components/PriceList"
-import { ContactLinks } from "@/components/ContactLinks"
+import { Services } from "@/components/Services"
+import { Footer } from "@/components/Footer"
 
 export default function Home() {
   const projects = [
@@ -48,9 +47,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-100 pt-16">
       <Navigation />
-      <Header />
       <About />
-      <section id="projects" className="container mx-auto px-4 py-8">
+      <section id="projects" className="container mx-auto px-4 py-8 pt-16">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">Projects</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
@@ -58,8 +56,8 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <PriceList />
-      <ContactLinks />
+      <Services />
+      <Footer />
     </main>
   )
 }
