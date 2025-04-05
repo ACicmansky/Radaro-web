@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RADARO - Profesionálne stavebné služby
+
+![RADARO Logo](/public/images/other/Logo.png)
+
+## Overview
+
+RADARO is a modern, responsive website for a professional construction services company. The site showcases the company's services, projects, testimonials, and provides a contact form for potential clients to reach out.
+
+## Features
+
+- **Modern UI Design**: Clean, professional interface with consistent styling and a red accent color (#EF4444)
+- **Responsive Layout**: Fully responsive design that works across all device sizes
+- **Interactive Components**:
+  - Hero section with call-to-action buttons
+  - Services section with detailed descriptions
+  - Projects showcase
+  - Client testimonials carousel
+  - Interactive contact form with email functionality
+  - Google Maps integration
+- **Smooth Scrolling**: Enhanced navigation with smooth scrolling to different sections
+- **Email Integration**: Contact form with server-side validation and email sending capability
+- **Toast Notifications**: User feedback through toast notifications for form submissions
+
+## Technology Stack
+
+- **Framework**: Next.js (App Router)
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn UI
+- **Icons**: React Icons
+- **Email**: Nodemailer
+- **Form Handling**: React Hook Form
+- **Notifications**: Sonner Toast
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18.x or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/radaro-website.git
+   cd radaro-website
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Set up environment variables
+   Create a `.env` file in the root directory with the following variables:
+   ```
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_SECURE=false
+   SMTP_USER=your-email@gmail.com
+   SMTP_PASSWORD=your-app-password
+   ```
+
+4. Run the development server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
+
+## Project Structure
+
+```
+├── app/                  # Next.js app router
+│   ├── api/              # API routes
+│   │   └── contact/      # Contact form API
+│   └── page.tsx          # Main page
+├── components/           # React components
+│   ├── Contact.tsx       # Contact form component
+│   ├── Footer.tsx        # Footer component
+│   ├── HeroSection.tsx   # Hero section component
+│   ├── Navigation.tsx    # Navigation component
+│   ├── Projects.tsx      # Projects component
+│   ├── Services.tsx      # Services component
+│   └── Testimonials.tsx  # Testimonials component
+├── lib/                  # Utility functions
+├── public/               # Static assets
+└── styles/               # Global styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site can be deployed to Vercel with a single click:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Fradaro-website)
 
-## Learn More
+Alternatively, you can build the project for production:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Email Configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The contact form sends emails using Nodemailer. For Gmail accounts, you'll need to:
 
-## Deploy on Vercel
+1. Enable 2-Factor Authentication on your Google account
+2. Generate an App Password (Google Account → Security → App Passwords)
+3. Use this App Password in your .env file
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[MIT](LICENSE)
+
+## Contact
+
+For any inquiries about this project, please contact [info@radaro.sk](mailto:info@radaro.sk).
