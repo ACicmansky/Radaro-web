@@ -11,7 +11,7 @@ export default function Home() {
   const projects = [
     {
       title: "Slnečnice C",
-      imageSrc: "/images/slnecnice/main.jpg",
+      imageSrc: "/images/slnecnice/Main.jpg",
       description:
         "Slnečnice C je rezidenčný developerský projekt nachádzajúci sa v Bratislave. Projekt ponúka moderné byty s kvalitným spracovaním a vybavením. Náš tím poskytoval komplexné služby stavebného dozoru a kontroly kvality počas celého procesu vývoja.",
       images: [
@@ -25,7 +25,7 @@ export default function Home() {
     },
     {
       title: "Arboria TT",
-      imageSrc: "/images/arboria/main.jpg",
+      imageSrc: "/images/arboria/Main.jpg",
       description:
         "Arboria TT je polyfunkčný komplex v Trnave s bytovými jednotkami a obchodnými priestormi. Poskytli sme služby projektového manažmentu zabezpečujúce včasné dokončenie a dodržiavanie štandardov kvality.",
       images: [
@@ -39,7 +39,7 @@ export default function Home() {
     },
     {
       title: "MK",
-      imageSrc: "/images/mk/main.jpg",
+      imageSrc: "/images/mk/Main.jpg",
       description:
         "Projekt MK zahŕňal obnovu a modernizáciu existujúcej stavby. Náš tím vykonal dôkladné technické kontroly a zabezpečil dozor počas celého procesu rekonštrukcie.",
       images: [
@@ -53,7 +53,7 @@ export default function Home() {
     },
     {
       title: "CGII",
-      imageSrc: "/images/cgii/main.jpg",
+      imageSrc: "/images/cgii/Main.jpg",
       description:
         "CGII je komerčný development s kancelárskymi priestormi a maloobchodnými jednotkami. Poskytli sme komplexné audity kvality a služby dodržiavania predpisov, aby sme zabezpečili, že projekt spĺňa všetky požadované štandardy.",
       images: [
@@ -67,7 +67,7 @@ export default function Home() {
     },
     {
       title: "Ovocné sady",
-      imageSrc: "/images/ovocnesady/main.jpg",
+      imageSrc: "/images/ovocnesady/Main.jpg",
       description:
         "Ovocné sady sú rezidenčný komunitný development so zameraním na udržateľnosť a zelené plochy. Náš tím riadil projekt od počiatočného plánovania až po dokončenie, zabezpečenie vysokej kvality výstavby a dodržiavanie environmentálnych noriem.",
       images: [
