@@ -7,40 +7,74 @@ import { Footer } from "@/components/Footer"
 export default function Home() {
   const projects = [
     {
-      title: "Project 1",
-      imageSrc: "/placeholder.svg?height=300&width=400",
+      title: "Slnečnice C",
+      imageSrc: "/images/slnecnice/main.jpg",
       description:
-        "Description for Project 1. This project showcases my skills in responsive web design and modern JavaScript frameworks.",
+        "Slnečnice C je rezidenčný developerský projekt nachádzajúci sa v Bratislave. Projekt ponúka moderné byty s kvalitným spracovaním a vybavením. Náš tím poskytoval komplexné služby stavebného dozoru a kontroly kvality počas celého procesu vývoja.",
+      images: [
+        "/images/slnecnice/1.jpg",
+        "/images/slnecnice/2.jpg",
+        "/images/slnecnice/3.jpg",
+        "/images/slnecnice/4.jpg",
+        "/images/slnecnice/5.jpg",
+        "/images/slnecnice/6.jpg",
+      ],
     },
     {
-      title: "Project 2",
-      imageSrc: "/placeholder.svg?height=300&width=400",
+      title: "Arboria TT",
+      imageSrc: "/images/arboria/main.jpg",
       description:
-        "Description for Project 2. An e-commerce solution built with React and Node.js, featuring real-time inventory management.",
+        "Arboria TT je polyfunkčný komplex v Trnave s bytovými jednotkami a obchodnými priestormi. Poskytli sme služby projektového manažmentu zabezpečujúce včasné dokončenie a dodržiavanie štandardov kvality.",
+      images: [
+        "/images/arboria/1.jpg",
+        "/images/arboria/2.jpg",
+        "/images/arboria/3.jpg",
+        "/images/arboria/4.jpg",
+        "/images/arboria/5.jpg",
+        "/images/arboria/6.jpg",
+      ],
     },
     {
-      title: "Project 3",
-      imageSrc: "/placeholder.svg?height=300&width=400",
+      title: "MK",
+      imageSrc: "/images/mk/main.jpg",
       description:
-        "Description for Project 3. A mobile app developed using React Native, allowing users to track their fitness goals and nutrition.",
+        "Projekt MK zahŕňal obnovu a modernizáciu existujúcej stavby. Náš tím vykonal dôkladné technické kontroly a zabezpečil dozor počas celého procesu rekonštrukcie.",
+      images: [
+        "/images/mk/1.jpg",
+        "/images/mk/2.jpg",
+        "/images/mk/3.jpg",
+        "/images/mk/4.jpg",
+        "/images/mk/5.jpg",
+        "/images/mk/6.jpg",
+      ],
     },
     {
-      title: "Project 4",
-      imageSrc: "/placeholder.svg?height=300&width=400",
+      title: "CGII",
+      imageSrc: "/images/cgii/main.jpg",
       description:
-        "Description for Project 4. An AI-powered chatbot integrated into a customer service platform, improving response times and user satisfaction.",
+        "CGII je komerčný development s kancelárskymi priestormi a maloobchodnými jednotkami. Poskytli sme komplexné audity kvality a služby dodržiavania predpisov, aby sme zabezpečili, že projekt spĺňa všetky požadované štandardy.",
+      images: [
+        "/images/cgii/1.png",
+        "/images/cgii/2.png",
+        "/images/cgii/3.jpg",
+        "/images/cgii/4.jpg",
+        "/images/cgii/5.jpg",
+        "/images/cgii/6.jpg",
+      ],
     },
     {
-      title: "Project 5",
-      imageSrc: "/placeholder.svg?height=300&width=400",
+      title: "Ovocné sady",
+      imageSrc: "/images/ovocnesady/main.jpg",
       description:
-        "Description for Project 5. A data visualization dashboard built with D3.js, presenting complex datasets in an intuitive and interactive manner.",
-    },
-    {
-      title: "Project 6",
-      imageSrc: "/placeholder.svg?height=300&width=400",
-      description:
-        "Description for Project 6. A blockchain-based voting system ensuring transparency and security in online elections.",
+        "Ovocné sady sú rezidenčný komunitný development so zameraním na udržateľnosť a zelené plochy. Náš tím riadil projekt od počiatočného plánovania až po dokončenie, zabezpečenie vysokej kvality výstavby a dodržiavanie environmentálnych noriem.",
+      images: [
+        "/images/ovocnesady/1.jpg",
+        "/images/ovocnesady/2.jpg",
+        "/images/ovocnesady/3.jpg",
+        "/images/ovocnesady/4.jpg",
+        "/images/ovocnesady/5.jpg",
+        "/images/ovocnesady/6.jpg",
+      ],
     },
   ]
 
@@ -49,12 +83,8 @@ export default function Home() {
       <Navigation />
       <About />
       <section id="projects" className="container mx-auto px-4 py-8 pt-16">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">Projects</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </div>
+        <h2 className="text-3xl font-bold text-gray-800 mb-6">Projekty</h2>
+        <ProjectCard projects={projects} />
       </section>
       <Services />
       <Footer />
