@@ -1,21 +1,9 @@
 "use client"
 
 import Image from "next/image"
+import { scrollToSection } from "@/lib/scroll"
 
 export function Navigation() {
-
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId)
-    if (section) {
-      const navHeight = 64 // Approximate height of the navigation bar
-      const offset = section.offsetTop - navHeight
-      window.scrollTo({
-        top: offset,
-        behavior: "smooth",
-      })
-    }
-  }
-
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-[5px] shadow-md z-10">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -23,8 +11,9 @@ export function Navigation() {
           <Image
             src="/images/other/Logo.png"
             alt="RADARO logo"
-            layout="fill"
-            objectFit="contain"
+            fill
+            className="object-contain"
+            sizes="180px"
             priority
           />
         </div>
@@ -51,6 +40,22 @@ export function Navigation() {
               className={`text-gray-600 hover:text-gray-900`}
             >
               Služby
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => scrollToSection("testimonials")}
+              className={`text-gray-600 hover:text-gray-900`}
+            >
+              Referencie
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className={`text-gray-600 hover:text-gray-900`}
+            >
+              Kontakt
             </button>
           </li>
         </ul>

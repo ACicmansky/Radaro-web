@@ -34,32 +34,42 @@ export function Modal({ isOpen, onClose, title, description, images }: ModalProp
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-opacity duration-300 ${
         isOpen ? "opacity-100" : "opacity-0"
       }`}
       onClick={onClose}
     >
       <div
-        className={`bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col transition-transform duration-300 ${
-          isOpen ? "scale-100" : "scale-95"
+        className={`bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col transition-all duration-300 ${
+          isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center p-6 border-b sticky top-0 bg-white z-10">
-          <h2 className="text-2xl font-bold">{title}</h2>
-          <button onClick={onClose} className="p-1 rounded-full hover:bg-gray-100 transition-colors" aria-label="Close">
+        <div className="flex justify-between items-center p-6 border-b sticky top-0 bg-white rounded-t-xl z-10">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
+            <div className="w-16 h-1 bg-red-600 mt-2"></div>
+          </div>
+          <button 
+            onClick={onClose} 
+            className="p-2 rounded-full hover:bg-red-50 text-gray-600 hover:text-red-600 transition-colors" 
+            aria-label="Close"
+          >
             <X size={24} />
           </button>
         </div>
         <div className="p-6 overflow-y-auto">
-          <p className="text-gray-700 mb-6">{description}</p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <p className="text-gray-700 mb-8 leading-relaxed">{description}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {images.map((image, index) => (
-              <div key={index} className="aspect-square relative rounded-md overflow-hidden">
+              <div 
+                key={index} 
+                className="aspect-square relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-100"
+              >
                 <img
                   src={image || "/placeholder.svg"}
                   alt={`${title} image ${index + 1}`}
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
                 />
               </div>
             ))}

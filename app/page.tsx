@@ -1,7 +1,10 @@
 import { Navigation } from "@/components/Navigation"
+import { HeroSection } from "@/components/HeroSection"
 import { ProjectCard } from "@/components/ProjectCard"
 import { About } from "@/components/About"
 import { Services } from "@/components/Services"
+import { Testimonials } from "@/components/Testimonials"
+import { Contact } from "@/components/Contact"
 import { Footer } from "@/components/Footer"
 
 export default function Home() {
@@ -79,14 +82,25 @@ export default function Home() {
   ]
 
   return (
-    <main className="min-h-screen bg-gray-100 pt-16">
+    <main className="min-h-screen">
       <Navigation />
+      <HeroSection />
       <About />
-      <section id="projects" className="container mx-auto px-4 py-8 pt-16">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">Projekty</h2>
-        <ProjectCard projects={projects} />
+      <section id="projects" className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Naše projekty</h2>
+            <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
+            <p className="text-gray-600">
+              Prezrite si naše úspešne dokončené projekty
+            </p>
+          </div>
+          <ProjectCard projects={projects} />
+        </div>
       </section>
       <Services />
+      <Testimonials />
+      <Contact />
       <Footer />
     </main>
   )
