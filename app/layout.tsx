@@ -70,11 +70,6 @@ export const metadata: Metadata = {
     images: ["/images/other/og-image.jpg"],
     creator: "@radaro_sk",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
   robots: {
     index: true,
     follow: true,
@@ -91,10 +86,10 @@ export const metadata: Metadata = {
     shortcut: "/images/other/favicon.ico",
     apple: "/images/other/favicon.ico",
   },
-  verification: {
-    google: "verification_token", //TODO
-    yandex: "verification_token", //TODO
-  },
+  // verification: {
+  //   google: "verification_token", //TODO
+  //   yandex: "verification_token", //TODO
+  // },
   alternates: {
     canonical: "https://radaro.sk",
     languages: {
@@ -149,10 +144,10 @@ export default function RootLayout({
                   "closes": "17:00"
                 }
               ],
-              "sameAs": [
-                // "https://www.facebook.com/radaro", TODO
-                // "https://www.instagram.com/radaro"
-              ],
+              // "sameAs": [
+              //   // "https://www.facebook.com/radaro", TODO
+              //   // "https://www.instagram.com/radaro"
+              // ],
               "priceRange": "€€",
               "servesCuisine": "Construction Services",
               "description": "Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie. Stavebný dozor, technické poradenstvo a riadenie projektov."

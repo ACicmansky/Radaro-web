@@ -40,7 +40,7 @@ export function Testimonials() {
                     
                     <div className="relative z-10">
                       <p className="text-gray-700 text-lg italic mb-6">
-                        "{testimonial.quote}"
+                        &quot;{testimonial.quote}&quot;
                       </p>
                       
                       <div className="flex items-center">
