@@ -6,7 +6,7 @@ import { scrollToSection } from "@/lib/scroll"
 
 export function HeroSection() {
   return (
-    <section
+    <section id="hero"
       className="relative h-[70vh] flex items-center justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
     >
       {/* Overlay pattern for visual interest */}
@@ -22,33 +22,32 @@ export function HeroSection() {
         <div className="absolute -right-10 top-0 w-1/2 h-full transform rotate-6 bg-red-600 opacity-10" />
       </div>
       
-      <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-        <div className="relative h-48 w-[500px] mx-auto mb-1">
+      <div className="relative z-10 text-center text-white px-3 sm:px-4 max-w-5xl mx-auto">
+        <div className="relative h-32 sm:h-36 md:h-48 w-[280px] sm:w-[350px] md:w-[500px] mx-auto mb-1">
           <Image
-            src="/images/other/hero-logo.png"
+            src="/images/other/hero-logo.PNG"
             alt="RADARO logo"
             fill
             className="object-contain"
-            sizes="500px"
+            sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, 500px"
             priority
           />
         </div>
-        <p className="text-lg mb-6 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-2">
           Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie
         </p>
-        <p className="text-base mb-6 max-w-2xl mx-auto text-gray-300">
+        <p className="text-sm sm:text-base mb-4 sm:mb-6 max-w-2xl mx-auto text-gray-300 px-2">
           Prinášame odborný dohľad a profesionálne riadenie pre vaše stavebné projekty
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
           <Button 
-            className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium"
+            className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium text-sm sm:text-base py-1 h-auto sm:h-10"
             onClick={() => scrollToSection("contact")}
           >
             Bezplatná konzultácia
           </Button>
           <Button 
-            variant="outline" 
-            className="text-gray-900 border-white hover:bg-white font-medium"
+            className="bg-white hover:bg-gray-100 text-gray-800 font-medium text-sm sm:text-base py-1 h-auto sm:h-10"
             onClick={() => scrollToSection("projects")}
           >
             Naše projekty
