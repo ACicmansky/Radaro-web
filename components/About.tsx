@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import { FaLinkedin, FaEnvelope } from "react-icons/fa"
+import { scrollToSection } from "@/lib/scroll"
 
 export function About() {
   return (
@@ -59,9 +62,12 @@ export function About() {
                   poradenstvo pri kúpe nehnuteľností. Veríme v profesionálny prístup, moderné technológie a riešenia, ktoré
                   vám zabezpečia kvalitnú a bezproblémovú výstavbu.
                 </p>
-                <p className="font-medium">
-                  Kontaktujte nás pre cenovú ponuku.
-                </p>
+                <button 
+                  onClick={() => scrollToSection('contact')} 
+                  className="mt-4 px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md font-medium transition-colors"
+                >
+                  Kontaktujte nás pre cenovú ponuku
+                </button>
               </div>
             </div>
           </div>
