@@ -33,7 +33,7 @@ export function Testimonials() {
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
-                  <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-md relative">
+                  <div className="bg-gradient-to-b from-gray-50 to-white rounded-xl md:rounded-t-2xl md:rounded-b-lg p-8 md:p-12 shadow-sm relative overflow-hidden">
                     <div className="text-radaro-red opacity-20 absolute top-6 left-6">
                       <FaQuoteLeft size={40} />
                     </div>
