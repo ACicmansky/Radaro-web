@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { X } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { X, Loader2 } from "lucide-react"
 
 interface ModalProps {
   isOpen: boolean
@@ -11,9 +11,26 @@ interface ModalProps {
   images: string[]
 }
 
+type ImageStatus = {
+  loaded: boolean
+  error: boolean
+}
+
 export function Modal({ isOpen, onClose, title, description, images }: ModalProps) {
   const [isVisible, setIsVisible] = useState(false)
+  const [imageStatuses, setImageStatuses] = useState<ImageStatus[]>([])
+  const [currentLoadingIndex, setCurrentLoadingIndex] = useState(0)
+  const imageRefs = useRef<(HTMLImageElement | null)[]>([])
+  
+  // Initialize image statuses when images array changes
+  useEffect(() => {
+    if (images.length > 0) {
+      setImageStatuses(images.map(() => ({ loaded: false, error: false })))
+      setCurrentLoadingIndex(0)
+    }
+  }, [images])
 
+  // Handle modal visibility
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true)
@@ -29,6 +46,40 @@ export function Modal({ isOpen, onClose, title, description, images }: ModalProp
       document.body.style.overflow = "auto"
     }
   }, [isOpen])
+
+  // Sequential image loading
+  useEffect(() => {
+    if (!isVisible || currentLoadingIndex >= images.length) return
+
+    const loadImage = (index: number) => {
+      if (index >= images.length) return
+      
+      const img = new window.Image()
+      img.src = images[index] || "/placeholder.svg"
+      
+      img.onload = () => {
+        setImageStatuses(prev => {
+          const newStatuses = [...prev]
+          newStatuses[index] = { loaded: true, error: false }
+          return newStatuses
+        })
+        // Load next image
+        setCurrentLoadingIndex(index + 1)
+      }
+      
+      img.onerror = () => {
+        setImageStatuses(prev => {
+          const newStatuses = [...prev]
+          newStatuses[index] = { loaded: true, error: true }
+          return newStatuses
+        })
+        // Even if error, continue to next image
+        setCurrentLoadingIndex(index + 1)
+      }
+    }
+
+    loadImage(currentLoadingIndex)
+  }, [isVisible, currentLoadingIndex, images])
 
   if (!isVisible) return null
 
@@ -66,11 +117,43 @@ export function Modal({ isOpen, onClose, title, description, images }: ModalProp
                 key={index} 
                 className="aspect-square relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-100"
               >
+                {!imageStatuses[index]?.loaded && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                    <Loader2 className="h-8 w-8 text-radaro-red animate-spin" />
+                  </div>
+                )}
                 <img
+                  ref={(el) => {
+                    if (imageRefs.current) {
+                      imageRefs.current[index] = el
+                    }
+                  }}
                   src={image || "/placeholder.svg"}
                   alt={`${title} image ${index + 1}`}
-                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                  className={`object-cover w-full h-full transition-transform duration-300 hover:scale-105 ${!imageStatuses[index]?.loaded ? 'opacity-0' : 'opacity-100'}`}
+                  loading={index < 3 ? "eager" : "lazy"}
+                  onLoad={() => {
+                    if (!imageStatuses[index]?.loaded) {
+                      setImageStatuses(prev => {
+                        const newStatuses = [...prev]
+                        newStatuses[index] = { loaded: true, error: false }
+                        return newStatuses
+                      })
+                    }
+                  }}
+                  onError={() => {
+                    setImageStatuses(prev => {
+                      const newStatuses = [...prev]
+                      newStatuses[index] = { loaded: true, error: true }
+                      return newStatuses
+                    })
+                  }}
                 />
+                {imageStatuses[index]?.error && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                    <p className="text-radaro-red text-sm">Failed to load image</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
