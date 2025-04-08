@@ -48,11 +48,11 @@ export function Modal({ isOpen, onClose, title, description, images }: ModalProp
         <div className="flex justify-between items-center p-6 border-b sticky top-0 bg-white rounded-t-xl z-10">
           <div>
             <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
-            <div className="w-16 h-1 bg-red-600 mt-2"></div>
+            <div className="w-16 h-1 bg-radaro-red mt-2" />
           </div>
           <button 
             onClick={onClose} 
-            className="p-2 rounded-full hover:bg-red-50 text-gray-600 hover:text-red-600 transition-colors" 
+            className="p-2 rounded-full hover:bg-radaro-red-hover hover:text-white text-gray-600 transition-colors" 
             aria-label="Close"
           >
             <X size={24} />

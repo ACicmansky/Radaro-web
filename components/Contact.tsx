@@ -82,7 +82,7 @@ export function Contact() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-3">Kontaktujte nás</h2>
-          <div className="w-16 h-1 bg-red-600 mx-auto mb-4"></div>
+          <div className="w-16 h-1 bg-radaro-red mx-auto mb-4" />
           <p className="text-gray-600 text-sm">
             Máte otázky alebo potrebujete konzultáciu? Neváhajte nás kontaktovať.
           </p>
@@ -96,7 +96,7 @@ export function Contact() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Meno a priezvisko <span className="text-red-600">*</span>
+                    Meno a priezvisko <span className="text-radaro-red">*</span>
                   </label>
                   <input
                     type="text"
@@ -104,12 +104,12 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email <span className="text-red-600">*</span>
+                    Email <span className="text-radaro-red">*</span>
                   </label>
                   <input
                     type="email"
@@ -117,14 +117,14 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
                   />
                 </div>
               </div>
               
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                  Predmet <span className="text-red-600">*</span>
+                  Predmet <span className="text-radaro-red">*</span>
                 </label>
                 <input
                   type="text"
@@ -132,13 +132,13 @@ export function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
                 />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Správa <span className="text-red-600">*</span>
+                  Správa <span className="text-radaro-red">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -146,13 +146,13 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
                 ></textarea>
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2"
+                className="w-full bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-2"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Odosielanie..." : "Odoslať správu"}

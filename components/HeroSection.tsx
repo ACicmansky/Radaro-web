@@ -23,7 +23,7 @@ export function HeroSection() {
       
       <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
         <h1 className="text-5xl font-bold mb-4 tracking-tight">
-          <span className="text-red-600">RA</span>DARO
+          <span className="text-radaro-red">RA</span>DARO
         </h1>
         <p className="text-lg mb-6 max-w-3xl mx-auto leading-relaxed">
           Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie
@@ -33,7 +33,7 @@ export function HeroSection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
-            className="bg-red-600 hover:bg-red-700 text-white font-medium"
+            className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium"
             onClick={() => scrollToSection("contact")}
           >
             Bezplatná konzultácia

@@ -10,7 +10,7 @@ export function About() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">O nás</h2>
-          <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-radaro-red mx-auto mb-6" />
         </div>
         
         <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
@@ -32,7 +32,7 @@ export function About() {
               <div className="flex space-x-4 mt-6">
                 <a 
                   href="mailto:info@radaro.sk" 
-                  className="text-gray-600 hover:text-red-600 transition-colors"
+                  className="text-gray-600 hover:text-radaro-red transition-colors"
                   aria-label="Email"
                 >
                   <FaEnvelope size={24} />
@@ -41,7 +41,7 @@ export function About() {
                   href="https://www.linkedin.com/in/radovan-kram%C3%A1r-88842b73/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-red-600 transition-colors"
+                  className="text-gray-600 hover:text-radaro-red transition-colors"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin size={24} />
@@ -64,7 +64,7 @@ export function About() {
                 </p>
                 <button 
                   onClick={() => scrollToSection('contact')} 
-                  className="mt-4 px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md font-medium transition-colors"
+                  className="mt-4 px-6 py-2 bg-radaro-red hover:bg-radaro-red-hover text-white rounded-md font-medium transition-colors"
                 >
                   Kontaktujte nás pre cenovú ponuku
                 </button>

@@ -25,7 +25,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Čo o nás hovoria klienti</h2>
-          <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-radaro-red mx-auto mb-6"></div>
         </div>
         
         <div className="max-w-4xl mx-auto">
@@ -34,7 +34,7 @@ export function Testimonials() {
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
                   <div className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-md relative">
-                    <div className="text-red-600 opacity-20 absolute top-6 left-6">
+                    <div className="text-radaro-red opacity-20 absolute top-6 left-6">
                       <FaQuoteLeft size={40} />
                     </div>
                     

@@ -10,6 +10,8 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+  			'radaro-red': 'hsl(var(--radaro-red))',
+  			'radaro-red-hover': 'hsl(var(--radaro-red-hover))',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

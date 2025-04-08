@@ -19,7 +19,7 @@ export function Footer() {
             <h3 className="text-white text-lg font-semibold mb-3">Kontaktné údaje</h3>
             <div className="space-y-2">
               <div className="flex items-start">
-                <FaMapMarkerAlt className="mr-3 mt-1 text-red-600" />
+                <FaMapMarkerAlt className="mr-3 mt-1 text-radaro-red" />
                 <span>
                   P. V. Rovnianka 5136/9
                   <br />
@@ -27,13 +27,13 @@ export function Footer() {
                 </span>
               </div>
               <div className="flex items-center">
-                <FaEnvelope className="mr-3 text-red-600" />
+                <FaEnvelope className="mr-3 text-radaro-red" />
                 <a href="mailto:info@radaro.sk" className="hover:text-white transition-colors">
                   info@radaro.sk
                 </a>
               </div>
               <div className="flex items-center">
-                <FaPhone className="mr-3 text-red-600" />
+                <FaPhone className="mr-3 text-radaro-red" />
                 <a href="tel:+421902851275" className="hover:text-white transition-colors">
                   +421 902 851 275
                 </a>
@@ -47,7 +47,7 @@ export function Footer() {
           
           <div className="flex space-x-4 mt-3 md:mt-0">
             <a href="https://github.com/ACicmansky" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-              <FaGithub size={18} />
+              <FaGithub size={18} className="hover:text-radaro-red" />
             </a>
             <a 
               href="https://www.linkedin.com/in/andrej-cicmansky/" 
@@ -55,10 +55,10 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin size={18} />
+              <FaLinkedin size={18} className="hover:text-radaro-red" />
             </a>
             <a href="mailto:andrej.cicmansky@gmail.com" className="hover:text-white transition-colors">
-              <FaEnvelope size={18} />
+              <FaEnvelope size={18} className="hover:text-radaro-red" />
             </a>
           </div>
         </div>

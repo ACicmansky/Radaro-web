@@ -55,7 +55,7 @@ export function Services() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Naše služby</h2>
-          <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-radaro-red mx-auto mb-6" />
           <p className="text-gray-600">
             Poskytujeme komplexné riešenia pre každú fázu vašich stavebných projektov
           </p>
@@ -67,7 +67,7 @@ export function Services() {
               key={index} 
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
             >
-              <div className="text-red-600 mb-4">
+              <div className="text-radaro-red mb-4">
                 {service.icon}
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">{service.title}</h3>

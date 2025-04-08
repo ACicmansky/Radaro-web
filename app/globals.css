@@ -14,6 +14,8 @@ body {
 
 @layer base {
   :root {
+    --radaro-red: 0 62% 42%;
+    --radaro-red-hover: 0 62% 34%;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -41,6 +43,8 @@ body {
     --radius: 0.5rem;
   }
   .dark {
+    --radaro-red: 0 62% 42%;
+    --radaro-red-hover: 0 62% 34%;
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;

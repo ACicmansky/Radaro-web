@@ -90,7 +90,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Naše projekty</h2>
-            <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
+            <div className="w-20 h-1 bg-radaro-red mx-auto mb-6" />
             <p className="text-gray-600">
               Prezrite si naše úspešne dokončené projekty
             </p>
