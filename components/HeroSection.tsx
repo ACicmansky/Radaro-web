@@ -18,7 +18,7 @@ export function HeroSection() {
       
       {/* Red accent diagonal */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -right-10 top-0 w-1/2 h-full transform rotate-6 bg-red-600 opacity-10"></div>
+        <div className="absolute -right-10 top-0 w-1/2 h-full transform rotate-6 bg-red-600 opacity-10" />
       </div>
       
       <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">

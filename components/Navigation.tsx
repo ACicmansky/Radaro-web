@@ -5,7 +5,7 @@ import { scrollToSection } from "@/lib/scroll"
 
 export function Navigation() {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-[5px] shadow-md z-10">
+    <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-[5px] shadow-md z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="relative h-12 w-[180px]">
           <Image
