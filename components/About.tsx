@@ -18,7 +18,7 @@ export function About() {
             <div className="md:w-1/3 bg-gray-100 p-8 flex flex-col items-center justify-center">
               <div className="w-40 h-40 relative rounded-full overflow-hidden shadow-lg border-4 border-white">
                 <Image
-                  src="/images/other/ProfilePicture.jpg"
+                  src="/images/other/photo.jpg"
                   alt="Profile picture"
                   fill
                   className="object-cover"

@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/scroll"
 
@@ -22,9 +23,16 @@ export function HeroSection() {
       </div>
       
       <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-        <h1 className="text-5xl font-bold mb-4 tracking-tight">
-          <span className="text-radaro-red">RA</span>DARO
-        </h1>
+        <div className="relative h-48 w-[500px] mx-auto mb-1">
+          <Image
+            src="/images/other/hero-logo.png"
+            alt="RADARO logo"
+            fill
+            className="object-contain"
+            sizes="500px"
+            priority
+          />
+        </div>
         <p className="text-lg mb-6 max-w-3xl mx-auto leading-relaxed">
           Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie
         </p>

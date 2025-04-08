@@ -9,7 +9,7 @@ export function Navigation() {
       <div className="container mx-auto px-4 flex justify-between items-center h-[70px]">
         <div className="relative h-16 w-[220px]">
           <Image
-            src="/images/other/Logo.png"
+            src="/images/other/logo.png"
             alt="RADARO logo"
             fill
             className="object-contain"
