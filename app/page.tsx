@@ -46,9 +46,9 @@ export default function Home() {
         "/images/mk/1.jpg",
         "/images/mk/2.jpg",
         "/images/mk/3.jpg",
-        "/images/mk/4.jpg",
+        "/images/mk/4.JPG",
         "/images/mk/5.jpg",
-        "/images/mk/6.jpg",
+        "/images/mk/6.JPG",
       ],
     },
     {
