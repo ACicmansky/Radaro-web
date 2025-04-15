@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/scroll"
+import { motion } from "framer-motion"
 
 export function HeroSection() {
   return (
@@ -23,7 +24,12 @@ export function HeroSection() {
       </div>
       
       <div className="relative z-10 text-center text-white px-3 sm:px-4 max-w-5xl mx-auto">
-        <div className="relative h-32 sm:h-36 md:h-48 w-[280px] sm:w-[350px] md:w-[500px] mx-auto mb-1">
+        <motion.div 
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative h-32 sm:h-36 md:h-48 w-[280px] sm:w-[350px] md:w-[500px] mx-auto mb-1"
+        >
           <Image
             src="/images/other/hero-logo.PNG"
             alt="RADARO logo"
@@ -32,27 +38,46 @@ export function HeroSection() {
             sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, 500px"
             priority
           />
-        </div>
-        <p className="text-base sm:text-lg mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-2">
+        </motion.div>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-base sm:text-lg mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-2"
+        >
           Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie
-        </p>
-        <p className="text-sm sm:text-base mb-4 sm:mb-6 max-w-2xl mx-auto text-gray-300 px-2">
+        </motion.p>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-sm sm:text-base mb-4 sm:mb-6 max-w-2xl mx-auto text-gray-300 px-2"
+        >
           Prinášame odborný dohľad a profesionálne riadenie pre vaše stavebné projekty
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
-          <Button 
-            className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium text-sm sm:text-base py-1 h-auto sm:h-10"
-            onClick={() => scrollToSection("contact")}
-          >
-            Bezplatná konzultácia
-          </Button>
-          <Button 
-            className="bg-white hover:bg-gray-100 text-gray-800 font-medium text-sm sm:text-base py-1 h-auto sm:h-10"
-            onClick={() => scrollToSection("projects")}
-          >
-            Naše projekty
-          </Button>
-        </div>
+        </motion.p>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
+        >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+            <Button 
+              className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium text-sm sm:text-base py-1 h-auto sm:h-10"
+              onClick={() => scrollToSection("contact")}
+            >
+              Bezplatná konzultácia
+            </Button>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+            <Button 
+              className="bg-white hover:bg-gray-100 text-gray-800 font-medium text-sm sm:text-base py-1 h-auto sm:h-10"
+              onClick={() => scrollToSection("projects")}
+            >
+              Naše projekty
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

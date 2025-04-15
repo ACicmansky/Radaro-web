@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
+import { motion } from "framer-motion"
+import { ScrollReveal } from "@/components/animations/ScrollReveal"
 
 type FormData = {
   name: string
@@ -80,21 +82,45 @@ export function Contact() {
   return (
     <section id="contact" className="bg-gray-50 py-10">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-3">Kontaktujte nás</h2>
-          <div className="w-16 h-1 bg-radaro-red mx-auto mb-4" />
-          <p className="text-gray-600 text-sm">
-            Máte otázky alebo potrebujete konzultáciu? Neváhajte nás kontaktovať.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="max-w-3xl mx-auto text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">Kontaktujte nás</h2>
+            <div className="w-16 h-1 bg-radaro-red mx-auto mb-4" />
+            <p className="text-gray-600 text-sm">
+              Máte otázky alebo potrebujete konzultáciu? Neváhajte nás kontaktovať.
+            </p>
+          </div>
+        </ScrollReveal>
         
         <div className="flex justify-center">
-          <div className="bg-white rounded-lg shadow-md p-6 max-w-md w-full">
-            <h3 className="text-lg font-bold text-gray-800 mb-4">Nechajte nám správu</h3>
+          <motion.div 
+            className="bg-white rounded-lg shadow-md p-6 max-w-md w-full"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <motion.h3 
+              className="text-lg font-bold text-gray-800 mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              Nechajte nám správu
+            </motion.h3>
             
             <form className="space-y-3" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
+              <motion.div 
+                className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              >
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                >
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     Meno a priezvisko <span className="text-radaro-red">*</span>
                   </label>
@@ -106,8 +132,12 @@ export function Contact() {
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
                   />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                >
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                     Email <span className="text-radaro-red">*</span>
                   </label>
@@ -119,10 +149,14 @@ export function Contact() {
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
                   />
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
               
-              <div>
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+              >
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                   Predmet <span className="text-radaro-red">*</span>
                 </label>
@@ -134,9 +168,13 @@ export function Contact() {
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
                 />
-              </div>
+              </motion.div>
               
-              <div>
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+              >
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Správa <span className="text-radaro-red">*</span>
                 </label>
@@ -148,17 +186,25 @@ export function Contact() {
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
                 ></textarea>
-              </div>
+              </motion.div>
               
-              <Button 
-                type="submit" 
-                className="w-full bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-2"
-                disabled={isSubmitting}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
               >
-                {isSubmitting ? "Odosielanie..." : "Odoslať správu"}
-              </Button>
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-2"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Odosielanie..." : "Odoslať správu"}
+                  </Button>
+                </motion.div>
+              </motion.div>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
