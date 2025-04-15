@@ -4,33 +4,16 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { FaQuoteLeft } from "react-icons/fa"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/animations/ScrollReveal"
+import { testimonials } from "@/data/Testimonials"
 
-export function Testimonials() {
-  const testimonials = [
-    {
-      name: "Peter Novák",
-      position: "Developerská spoločnosť XYZ",
-      quote: "Tím RADARO nám poskytol vynikajúcu podporu pri našom projekte. Ich odbornosť a pozornosť k detailom výrazne prispeli ku kvalite finálneho produktu."
-    },
-    {
-      name: "Jana Kováčová",
-      position: "Majiteľka nehnuteľnosti",
-      quote: "Technická obhliadka od RADARO odhalila viacero problémov, ktoré by nás neskôr stáli tisíce eur. Vysoko odporúčam ich služby každému, kto uvažuje o kúpe nehnuteľnosti."
-    },
-    {
-      name: "Michal Svoboda",
-      position: "Stavebná firma ABC",
-      quote: "Spolupráca s Ing. Kramárom bola vždy profesionálna. Jeho expertíza a skúsenosti sú neoceniteľné pre úspešné dokončenie náročných projektov."
-    }
-  ]
-  
+export function Testimonials() {  
   return (
     <section id="testimonials" className="bg-white py-16">
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Čo o nás hovoria klienti</h2>
-            <div className="w-20 h-1 bg-radaro-red mx-auto mb-6"></div>
+            <div className="w-20 h-1 bg-radaro-red mx-auto mb-6" />
           </div>
         </ScrollReveal>
         

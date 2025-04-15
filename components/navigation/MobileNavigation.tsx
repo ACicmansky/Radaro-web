@@ -5,9 +5,15 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Sling as Hamburger } from "hamburger-react"
 import { NavLogo } from "./NavLogo"
 import { MobileMenu } from "./MobileMenu"
+import { scrollToSection } from "@/lib/scroll"
 
 export function MobileNavigation() {
   const [isOpen, setIsOpen] = useState(false)
+  
+  const handleContactClick = () => {
+    scrollToSection("contact")
+    if (isOpen) setIsOpen(false)
+  }
   
   // Animation variants for the nav container
   const navVariants = {
@@ -42,23 +48,39 @@ export function MobileNavigation() {
             <NavLogo size="small" />
           </motion.div>
           
-          {/* Hamburger menu */}
-          <motion.div
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-gray-800"
-          >
-            <Hamburger 
-              toggled={isOpen} 
-              toggle={setIsOpen} 
-              size={20} 
-              duration={0.3} 
-              color={"#333"} 
-              rounded
-              label="Show menu"
-            />
-          </motion.div>
+          {/* Nav actions */}
+          <div className="flex items-center space-x-2">
+            {/* Contact button */}
+            <motion.button
+              onClick={handleContactClick}
+              className="bg-radaro-red hover:bg-radaro-red-hover text-white text-sm font-medium py-1.5 px-3 rounded"  
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Kontakt
+            </motion.button>
+            
+            {/* Hamburger menu */}
+            <motion.div
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-gray-800"
+            >
+              <Hamburger 
+                toggled={isOpen} 
+                toggle={setIsOpen} 
+                size={20} 
+                duration={0.3} 
+                color={"#333"} 
+                rounded
+                label="Show menu"
+              />
+            </motion.div>
+          </div>
         </div>
       </motion.div>
       
@@ -68,6 +90,8 @@ export function MobileNavigation() {
           <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
         )}
       </AnimatePresence>
+
+
     </>
   )
 }
