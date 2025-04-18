@@ -79,7 +79,7 @@ export function ProjectSection() {
                                             </AnimatePresence>
                                             {/* Full overlay on hover (desktop only) */}
                                             <motion.div
-                                                className="absolute inset-0 bg-black/60 flex items-center justify-center hidden md:flex"
+                                                className="absolute inset-0 bg-black/60 flex items-center justify-center md:flex"
                                                 initial={{ opacity: 0 }}
                                                 whileHover={{ opacity: 1 }}
                                                 transition={{ duration: 0.3 }}
