@@ -38,7 +38,7 @@ export function MobileNavigation() {
         animate="visible"
         initial="visible"
       >
-        <div className="container mx-auto px-4 h-full flex items-center justify-between">
+        <div className="container mx-auto px-5 h-full flex items-center justify-between">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -10 }}
@@ -49,11 +49,11 @@ export function MobileNavigation() {
           </motion.div>
           
           {/* Nav actions */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-3">
             {/* Contact button */}
             <motion.button
               onClick={handleContactClick}
-              className="bg-radaro-red hover:bg-radaro-red-hover text-white text-sm font-medium py-1.5 px-3 rounded"  
+              className="bg-radaro-red hover:bg-radaro-red-hover text-white text-body-sm font-medium py-2 px-4 rounded"  
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}

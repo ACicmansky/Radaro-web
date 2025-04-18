@@ -107,14 +107,14 @@ export function Modal({ isOpen, onClose, title, description, images }: ModalProp
           >
             {/* Header */}
             <motion.div 
-              className="flex justify-between items-center p-6 border-b sticky top-0 bg-white rounded-t-xl z-10"
+              className="flex justify-between items-center p-8 border-b sticky top-0 bg-white rounded-t-xl z-10"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.3 }}
             >
               <div>
                 <motion.h2 
-                  className="text-2xl font-bold text-gray-800"
+                  className="text-heading-section text-emphasis"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.3 }}
@@ -144,13 +144,13 @@ export function Modal({ isOpen, onClose, title, description, images }: ModalProp
 
             {/* Content */}
             <motion.div 
-              className="p-6 overflow-y-auto"
+              className="p-8 overflow-y-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.4 }}
             >
               <motion.p 
-                className="text-gray-700 mb-8 leading-relaxed"
+                className="text-body mb-10 leading-relaxed text-subtle"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
@@ -160,7 +160,7 @@ export function Modal({ isOpen, onClose, title, description, images }: ModalProp
               
               {/* Image Grid */}
               <motion.div 
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 0.4 }}
@@ -216,7 +216,7 @@ export function Modal({ isOpen, onClose, title, description, images }: ModalProp
                     />
                     {imageStatuses[index]?.error && (
                       <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                        <p className="text-radaro-red text-sm">Failed to load image</p>
+                        <p className="text-radaro-red text-body-sm">Failed to load image</p>
                       </div>
                     )}
                   </motion.div>

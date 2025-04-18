@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 
 @layer utilities {
   .text-balance {
@@ -73,10 +71,102 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border;
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-5xl leading-tighter;
+  }
+  
+  h2 {
+    @apply text-4xl leading-tight;
+  }
+  
+  h3 {
+    @apply text-3xl leading-tight;
+  }
+  
+  h4 {
+    @apply text-2xl;
+  }
+  
+  h5 {
+    @apply text-xl;
+  }
+  
+  h6 {
+    @apply text-lg;
+  }
+  
+  /* Standard paragraph styling */
+  p {
+    @apply text-base leading-normal text-gray-600;
+  }
+  
+  /* Container for section-level spacing consistency */
+  .container-section {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+  
+  /* Standard vertical section spacing */
+  .section-spacing {
+    @apply py-section;
+  }
+  
+  .section-spacing-sm {
+    @apply py-section-sm;
+  }
+  
+  .section-spacing-lg {
+    @apply py-section-lg;
+  }
+}
+
+/* Typography utility classes */
+@layer utilities {
+  /* Body text variants */
+  .text-body-lg {
+    @apply text-lg leading-relaxed;
+  }
+  
+  .text-body-md {
+    @apply text-base leading-normal;
+  }
+  
+  .text-body-sm {
+    @apply text-sm leading-normal;
+  }
+  
+  /* Specialized text styles */
+  .text-heading-hero {
+    @apply text-5xl sm:text-6xl font-bold tracking-tight;
+  }
+  
+  .text-heading-section {
+    @apply text-4xl font-bold tracking-tight;
+  }
+  
+  .text-heading-subsection {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+  
+  /* Text emphasis variants */
+  .text-emphasis {
+    @apply font-medium text-gray-900;
+  }
+  
+  .text-subtle {
+    @apply text-gray-500;
   }
 }

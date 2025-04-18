@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/animations/ScrollReveal"
+import { SectionContainer } from "@/components/ui/SectionContainer"
+import { SectionHeader } from "@/components/ui/SectionHeader"
 
 type FormData = {
   name: string
@@ -80,28 +82,25 @@ export function Contact() {
   }
   
   return (
-    <section id="contact" className="bg-gray-50 py-10">
-      <div className="container mx-auto px-4">
+    <SectionContainer id="contact" background="light" spacing="sm">
         <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">Kontaktujte nás</h2>
-            <div className="w-16 h-1 bg-radaro-red mx-auto mb-4" />
-            <p className="text-gray-600 text-sm">
-              Máte otázky alebo potrebujete konzultáciu? Neváhajte nás kontaktovať.
-            </p>
-          </div>
+          <SectionHeader 
+            title="Kontaktujte nás" 
+            subtitle="Máte otázky alebo potrebujete konzultáciu? Neváhajte nás kontaktovať."
+            centered={true} 
+          />
         </ScrollReveal>
         
         <div className="flex justify-center">
           <motion.div 
-            className="bg-white rounded-lg shadow-md p-6 max-w-md w-full"
+            className="bg-white rounded-lg shadow-md p-8 max-w-md w-full"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <motion.h3 
-              className="text-lg font-bold text-gray-800 mb-4"
+              className="text-heading-subsection mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
@@ -109,7 +108,7 @@ export function Contact() {
               Nechajte nám správu
             </motion.h3>
             
-            <form className="space-y-3" onSubmit={handleSubmit}>
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <motion.div 
                 className="grid grid-cols-1 sm:grid-cols-2 gap-3"
                 initial={{ opacity: 0 }}
@@ -121,7 +120,7 @@ export function Contact() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-emphasis mb-2">
                     Meno a priezvisko <span className="text-radaro-red">*</span>
                   </label>
                   <input
@@ -138,7 +137,7 @@ export function Contact() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-emphasis mb-2">
                     Email <span className="text-radaro-red">*</span>
                   </label>
                   <input
@@ -157,7 +156,7 @@ export function Contact() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="subject" className="block text-sm font-medium text-emphasis mb-2">
                   Predmet <span className="text-radaro-red">*</span>
                 </label>
                 <input
@@ -175,7 +174,7 @@ export function Contact() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
               >
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-emphasis mb-2">
                   Správa <span className="text-radaro-red">*</span>
                 </label>
                 <textarea
@@ -196,7 +195,7 @@ export function Contact() {
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                   <Button 
                     type="submit" 
-                    className="w-full bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-2"
+                    className="w-full bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-3"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Odosielanie..." : "Odoslať správu"}
@@ -206,7 +205,6 @@ export function Contact() {
             </form>
           </motion.div>
         </div>
-      </div>
-    </section>
+    </SectionContainer>
   )
 }

@@ -5,6 +5,8 @@ import { FaUserTie, FaHardHat, FaSearchPlus, FaCheckCircle, FaCogs,
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/animations/ScrollReveal"
 import { StaggerContainer } from "@/components/animations/StaggerContainer"
+import { SectionContainer } from "@/components/ui/SectionContainer"
+import { SectionHeader } from "@/components/ui/SectionHeader"
 
 export function Services() {
   const services = [
@@ -56,16 +58,13 @@ export function Services() {
   ]
 
   return (
-    <section id="services" className="bg-gray-50 py-16">
-      <div className="container mx-auto px-4">
+    <SectionContainer id="services" background="light">
         <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Naše služby</h2>
-            <div className="w-20 h-1 bg-radaro-red mx-auto mb-6" />
-            <p className="text-gray-600">
-              Poskytujeme komplexné riešenia pre každú fázu vašich stavebných projektov
-            </p>
-          </div>
+          <SectionHeader 
+            title="Naše služby"
+            subtitle="Poskytujeme komplexné riešenia pre každú fázu vašich stavebných projektov"
+            centered={true}
+          />
         </ScrollReveal>
         
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" delay={0.2}>
@@ -77,7 +76,7 @@ export function Services() {
                 visible: { opacity: 1, y: 0 }
               }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col"
+              className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col"
             >
               <motion.div 
                 className="text-radaro-red mb-4"
@@ -86,13 +85,12 @@ export function Services() {
               >
                 {service.icon}
               </motion.div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">{service.title}</h3>
-              <p className="text-gray-600 text-sm flex-grow">{service.description}</p>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
+              <p className="text-body-sm text-gray-600 flex-grow">{service.description}</p>
             </motion.div>
           ))}
         </StaggerContainer>
-      </div>
-    </section>
+    </SectionContainer>
   )
 }
 

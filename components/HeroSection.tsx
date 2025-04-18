@@ -43,7 +43,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-base sm:text-lg mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-2"
+          className="text-body-lg mb-6 max-w-3xl mx-auto leading-relaxed text-gray-200 px-2"
         >
           Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie
         </motion.p>
@@ -51,7 +51,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-sm sm:text-base mb-4 sm:mb-6 max-w-2xl mx-auto text-gray-300 px-2"
+          className="text-body mb-8 max-w-2xl mx-auto text-gray-300 px-2"
         >
           Prinášame odborný dohľad a profesionálne riadenie pre vaše stavebné projekty
         </motion.p>
@@ -59,11 +59,11 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
+          className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0"
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Button 
-              className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium text-sm sm:text-base py-1 h-auto sm:h-10"
+              className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-3 px-6 h-auto"
               onClick={() => scrollToSection("contact")}
             >
               Bezplatná konzultácia
@@ -71,7 +71,7 @@ export function HeroSection() {
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Button 
-              className="bg-white hover:bg-gray-100 text-gray-800 font-medium text-sm sm:text-base py-1 h-auto sm:h-10"
+              className="bg-white hover:bg-gray-100 text-gray-800 font-medium py-3 px-6 h-auto"
               onClick={() => scrollToSection("projects")}
             >
               Naše projekty

@@ -5,25 +5,26 @@ import { FaQuoteLeft } from "react-icons/fa"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/animations/ScrollReveal"
 import { testimonials } from "@/data/Testimonials"
+import { SectionContainer } from "@/components/ui/SectionContainer"
+import { SectionHeader } from "@/components/ui/SectionHeader"
 
 export function Testimonials() {  
   return (
-    <section id="testimonials" className="bg-white py-16">
-      <div className="container mx-auto px-4">
+    <SectionContainer id="testimonials" background="white">
         <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Čo o nás hovoria klienti</h2>
-            <div className="w-20 h-1 bg-radaro-red mx-auto mb-6" />
-          </div>
+          <SectionHeader 
+            title="Čo o nás hovoria klienti" 
+            centered={true} 
+          />
         </ScrollReveal>
         
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto mt-8 sm:mt-12">
           <Carousel className="w-full" opts={{ loop: true }}>
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
                   <motion.div 
-                    className="bg-gradient-to-b from-gray-50 to-white rounded-xl md:rounded-t-2xl md:rounded-b-lg p-8 md:p-12 shadow-sm relative overflow-hidden"
+                    className="bg-gradient-to-b from-gray-50 to-white rounded-xl md:rounded-t-2xl md:rounded-b-lg p-10 md:p-14 shadow-sm relative overflow-hidden"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
@@ -39,7 +40,7 @@ export function Testimonials() {
                     
                     <div className="relative z-10">
                       <motion.p 
-                        className="text-gray-700 text-lg italic mb-6"
+                        className="text-body-lg text-gray-700 italic mb-8"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
@@ -54,8 +55,8 @@ export function Testimonials() {
                         transition={{ delay: 0.4, duration: 0.5 }}
                       >
                         <div className="ml-4">
-                          <h4 className="font-bold text-gray-800">{testimonial.name}</h4>
-                          <p className="text-gray-600 text-sm">{testimonial.position}</p>
+                          <h4 className="text-emphasis font-bold">{testimonial.name}</h4>
+                          <p className="text-subtle text-body-sm">{testimonial.position}</p>
                         </div>
                       </motion.div>
                     </div>
@@ -81,7 +82,6 @@ export function Testimonials() {
             </motion.div>
           </Carousel>
         </div>
-      </div>
-    </section>
+    </SectionContainer>
   )
 }

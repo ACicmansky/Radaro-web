@@ -8,7 +8,7 @@ export function Footer() {
   
   return (
     <footer className="bg-gray-900 text-gray-400">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-6 py-12">
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
           initial={{ opacity: 0, y: 20 }}
@@ -23,7 +23,7 @@ export function Footer() {
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <motion.h3 
-              className="text-white text-lg font-semibold mb-3"
+              className="text-white text-heading-subsection mb-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -32,7 +32,7 @@ export function Footer() {
               RADARO s.r.o.
             </motion.h3>
             <motion.p 
-              className="mb-3"
+              className="mb-4 text-body"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -58,7 +58,7 @@ export function Footer() {
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <motion.h3 
-              className="text-white text-lg font-semibold mb-3"
+              className="text-white text-heading-subsection mb-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -66,7 +66,7 @@ export function Footer() {
             >
               Kontaktné údaje
             </motion.h3>
-            <div className="space-y-2">
+            <div className="space-y-3">
               <motion.div 
                 className="flex items-start"
                 initial={{ opacity: 0, y: 10 }}
@@ -130,14 +130,14 @@ export function Footer() {
         </motion.div>
         
         <motion.div 
-          className="border-t border-gray-800 pt-4 flex flex-col md:flex-row justify-between items-center"
+          className="border-t border-gray-800 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.7, duration: 0.5 }}
         >
           <motion.p 
-            className="text-sm"
+            className="text-body-sm"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
