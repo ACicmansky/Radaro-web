@@ -25,12 +25,12 @@ export function ProjectSection() {
 
     return (
         <SectionContainer id="projects" background="white">
-            <SectionHeader 
-                title="Naše projekty" 
+            <SectionHeader
+                title="Naše projekty"
                 subtitle="Prezrite si naše úspešne dokončené projekty"
                 centered={true}
             />
-            
+
             <div className="mt-8 sm:mt-12 relative px-4 md:px-12">
                 <Carousel className="w-full" opts={{ loop: true }}>
                     <CarouselContent>
@@ -60,20 +60,27 @@ export function ProjectSection() {
                                         <AnimatePresence>
                                             {hoveredIndex !== index && (
                                                 <motion.div
-                                                    className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-4 px-3"
+                                                    className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent"
                                                     initial={{ opacity: 0 }}
                                                     animate={{ opacity: 0.9 }}
                                                     exit={{ opacity: 0 }}
-                                                    transition={{ duration: 0.2 }}
+                                                    transition={{ duration: 0.2 }}  
                                                 >
-                                                    <motion.h3
-                                                        className="text-white text-lg font-medium px-2 text-center"
-                                                        initial={{ y: 0 }}
-                                                        whileHover={{ y: -2 }}
+                                                    <motion.div
+                                                        className="bg-black/60 backdrop-blur-sm rounded-md py-2 px-4 w-full"
+                                                        initial={{ opacity: 0.9 }}
+                                                        animate={{ opacity: 0.9 }}
                                                         transition={{ duration: 0.3 }}
                                                     >
-                                                        {project.title}
-                                                    </motion.h3>
+                                                        <motion.h3
+                                                            className="text-white text-heading-subsection text-center"
+                                                            initial={{ y: 0 }}
+                                                            whileHover={{ y: -2 }}
+                                                            transition={{ duration: 0.3 }}
+                                                        >
+                                                            {project.title}
+                                                        </motion.h3>
+                                                    </motion.div>
                                                 </motion.div>
                                             )}
                                         </AnimatePresence>
@@ -90,11 +97,10 @@ export function ProjectSection() {
                                                 whileHover={{ y: 0, opacity: 1 }}
                                                 transition={{ duration: 0.3, delay: 0.1 }}
                                             >
-                                                <h3 className="text-white text-xl font-semibold text-center">
+                                                <h3 className="text-white text-heading-subsection text-center">
                                                     {project.title}
                                                 </h3>
-                                                <div className="w-8 h-1 bg-radaro-red rounded-full"></div>
-                                                <p className="text-white/90 text-sm text-center line-clamp-3">
+                                                <p className="text-white/90 text-body-sm text-center line-clamp-3">
                                                     {project.description.length > 100
                                                         ? `${project.description.substring(0, 100)}...`
                                                         : project.description}

@@ -7,7 +7,7 @@ export function Footer() {
   const year = new Date().getFullYear()
   
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-6 py-12">
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
@@ -32,7 +32,7 @@ export function Footer() {
               RADARO s.r.o.
             </motion.h3>
             <motion.p 
-              className="mb-4 text-body"
+              className="mb-4 text-body text-gray-300"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -41,6 +41,7 @@ export function Footer() {
               Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie.
             </motion.p>
             <motion.p
+              className="mb-4 text-body text-gray-300"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -79,7 +80,7 @@ export function Footer() {
                 >
                   <FaMapMarkerAlt className="mr-3 mt-1 text-radaro-red" />
                 </motion.div>
-                <span>
+                <span className="text-body text-gray-300">
                   P. V. Rovnianka 5136/9
                   <br />
                   03601 Martin
@@ -99,7 +100,7 @@ export function Footer() {
                 </motion.div>
                 <motion.a 
                   href="mailto:info@radaro.sk" 
-                  className="hover:text-white transition-colors"
+                  className="text-gray-300 hover:text-white transition-colors"
                   whileHover={{ scale: 1.05, color: "#FFFFFF" }}
                 >
                   info@radaro.sk
@@ -119,7 +120,7 @@ export function Footer() {
                 </motion.div>
                 <motion.a 
                   href="tel:+421902851275" 
-                  className="hover:text-white transition-colors"
+                  className="text-gray-300 hover:text-white transition-colors"
                   whileHover={{ scale: 1.05, color: "#FFFFFF" }}
                 >
                   +421 902 851 275
@@ -137,7 +138,7 @@ export function Footer() {
           transition={{ delay: 0.7, duration: 0.5 }}
         >
           <motion.p 
-            className="text-body-sm"
+            className="text-body-sm text-gray-300"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

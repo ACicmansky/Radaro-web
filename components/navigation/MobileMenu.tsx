@@ -86,7 +86,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         variants={menuVariants}
       >
         {/* Menu content */}
-        <div className="relative flex flex-col h-full p-6">
+        <div className="relative flex flex-col h-full p-8">
           {/* Pattern background */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
             <div 
@@ -118,14 +118,14 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           
           {/* Logo */}
           <motion.div 
-            className="flex justify-center mb-10 mt-4"
+            className="flex justify-center mb-12 mt-4"
             variants={itemVariants}
           >
             <NavLogo size="medium" />
           </motion.div>
               
           {/* Navigation items */}
-          <motion.div className="flex flex-col space-y-1.5">
+          <motion.div className="flex flex-col space-y-2">
             {NAV_ITEMS.map((item, index) => (
               <motion.div 
                 key={item.section} 
@@ -134,9 +134,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               >
                 <button
                   onClick={() => handleNavClick(item.section)}
-                  className={`w-full py-4 px-4 text-left rounded-md transition-all duration-300 ${item.isCta 
+                  className={`w-full py-4 px-6 text-left rounded-md transition-all duration-300 ${item.isCta 
                     ? 'text-white bg-radaro-red hover:bg-radaro-red-hover font-medium shadow-md hover:shadow-lg' 
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'}`}
+                    : 'text-emphasis hover:bg-gray-50 hover:text-emphasis'}`}
                 >
                   <div className="relative flex items-center">
                     {/* Icon indicators for each menu item */}
@@ -178,7 +178,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   </div>
                 </button>
                 {index < NAV_ITEMS.length - 1 && !item.isCta && (
-                  <div className="border-b border-gray-100 mx-3 my-1"></div>
+                  <div className="border-b border-gray-100 mx-4 my-1"></div>
                 )}
               </motion.div>
             ))}
@@ -186,12 +186,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           
           {/* Footer with social links */}
           <motion.div 
-            className="mt-auto pb-8 text-center"
+            className="mt-auto pb-10 text-center"
             variants={itemVariants}
           >
             {/* Social media icons */}
             <motion.div 
-              className="flex justify-center space-x-5 mb-6"
+              className="flex justify-center space-x-6 mb-8"
               variants={itemVariants}
             >
               <motion.a 
@@ -218,7 +218,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             
             {/* Copyright */}
             <motion.div 
-              className="text-xs text-gray-400 hover:text-gray-500 transition-colors duration-300"
+              className="text-body-sm text-gray-400 hover:text-gray-500 transition-colors duration-300"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
             >

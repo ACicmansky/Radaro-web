@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 export function HeroSection() {
   return (
     <section id="hero"
-      className="relative h-[70vh] flex items-center justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
+      className="relative min-h-[70vh] py-16 sm:py-20 flex items-center justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
     >
       {/* Overlay pattern for visual interest */}
       <div className="absolute inset-0 opacity-10" 
@@ -28,7 +28,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative h-32 sm:h-36 md:h-48 w-[280px] sm:w-[350px] md:w-[500px] mx-auto mb-1"
+          className="relative h-32 sm:h-36 md:h-48 w-[280px] sm:w-[350px] md:w-[500px] mx-auto mb-8 sm:mb-6 lg:mb-1"
         >
           <Image
             src="/images/other/hero-logo.PNG"
@@ -63,7 +63,7 @@ export function HeroSection() {
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Button 
-              className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-3 px-6 h-auto"
+              className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-3 px-6 h-auto w-full"
               onClick={() => scrollToSection("contact")}
             >
               Bezplatná konzultácia
@@ -71,7 +71,7 @@ export function HeroSection() {
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Button 
-              className="bg-white hover:bg-gray-100 text-gray-800 font-medium py-3 px-6 h-auto"
+              className="bg-white hover:bg-gray-100 text-gray-800 font-medium py-3 px-6 h-auto w-full"
               onClick={() => scrollToSection("projects")}
             >
               Naše projekty

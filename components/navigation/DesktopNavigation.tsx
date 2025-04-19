@@ -45,7 +45,7 @@ export function DesktopNavigation() {
       animate="visible"
       initial="visible"
     >
-      <div className="container mx-auto px-6 h-full flex items-center justify-between">
+      <div className="container mx-auto px-8 h-full flex items-center justify-between">
         {/* Logo */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -56,7 +56,7 @@ export function DesktopNavigation() {
         </motion.div>
 
         {/* Nav items */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-3">
           {NAV_ITEMS.map((item: NavItem, index: number) => (
             <motion.div 
               key={item.section}
@@ -68,10 +68,10 @@ export function DesktopNavigation() {
             >
               <button
                 onClick={() => handleNavClick(item.section)}
-                className={`px-5 py-2.5 rounded-md transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-md transition-all duration-300 text-body-sm ${
                   item.isCta 
                     ? 'text-white bg-radaro-red hover:bg-radaro-red-hover font-medium shadow-sm hover:shadow-md mx-3' 
-                    : 'text-emphasis hover:text-radaro-red'
+                    : 'text-emphasis hover:text-radaro-red '
                 }`}
               >
                 {item.label}

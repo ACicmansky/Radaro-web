@@ -129,7 +129,7 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md transition-all duration-200 focus:ring-2 focus:ring-radaro-red focus:border-transparent focus:shadow-sm"
                   />
                 </motion.div>
                 <motion.div
@@ -146,7 +146,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md transition-all duration-200 focus:ring-2 focus:ring-radaro-red focus:border-transparent focus:shadow-sm"
                   />
                 </motion.div>
               </motion.div>
@@ -165,7 +165,7 @@ export function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md transition-all duration-200 focus:ring-2 focus:ring-radaro-red focus:border-transparent focus:shadow-sm"
                 />
               </motion.div>
               
@@ -183,7 +183,7 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-radaro-red focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md transition-all duration-200 focus:ring-2 focus:ring-radaro-red focus:border-transparent focus:shadow-sm"
                 ></textarea>
               </motion.div>
               
