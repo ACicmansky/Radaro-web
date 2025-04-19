@@ -83,13 +83,11 @@ export function Contact() {
   
   return (
     <SectionContainer id="contact" background="light" spacing="sm">
-        <ScrollReveal>
-          <SectionHeader 
-            title="Kontaktujte nás" 
-            subtitle="Máte otázky alebo potrebujete konzultáciu? Neváhajte nás kontaktovať."
-            centered={true} 
-          />
-        </ScrollReveal>
+      <SectionHeader 
+        title="Kontaktujte nás" 
+        subtitle="Máte otázky alebo potrebujete konzultáciu? Neváhajte nás kontaktovať."
+        centered={true} 
+      />
         
         <div className="flex justify-center">
           <motion.div 

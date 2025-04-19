@@ -11,9 +11,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader"
 export function About() {
   return (
     <SectionContainer id="about" background="light">
-        <ScrollReveal>
-          <SectionHeader title="O nás" centered={true} />
-        </ScrollReveal>
+      <SectionHeader title="O nás" centered={true} />
         
         <div className="mt-8 sm:mt-12">
           <motion.div 

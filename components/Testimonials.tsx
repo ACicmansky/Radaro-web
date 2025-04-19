@@ -3,7 +3,7 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import * as React from "react"
 import Autoplay from "embla-carousel-autoplay"
-import { FaQuoteLeft } from "react-icons/fa"
+import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/animations/ScrollReveal"
 import { testimonials } from "@/data/Testimonials"
@@ -18,12 +18,10 @@ export function Testimonials() {
 
   return (
     <SectionContainer id="testimonials" background="white">
-      <ScrollReveal>
-        <SectionHeader
-          title="Čo o nás hovoria klienti"
-          centered={true}
-        />
-      </ScrollReveal>
+      <SectionHeader
+        title="Čo o nás hovoria klienti"
+        centered={true}
+      />
 
       <div className="max-w-4xl mx-auto mt-8 sm:mt-12">
         <div 
@@ -41,6 +39,10 @@ export function Testimonials() {
             plugins={[plugin.current]}
             setApi={setApi}
           >
+          {/* Custom styled carousel buttons with fixed positioning */}
+          <CarouselPrevious className="!absolute !left-0 md:!-left-4 !top-1/2 !-translate-y-1/2 !shadow-md hover:!shadow-lg focus:!shadow-lg !z-20 !h-10 !w-10 md:!h-12 md:!w-12 !flex !items-center !justify-center" >
+            <FaChevronLeft className="!h-5 !w-5 md:!h-6 md:!w-6" />
+          </CarouselPrevious>
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index}>
@@ -85,22 +87,9 @@ export function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <motion.div
-            className="absolute -left-4 top-1/2 -translate-y-1/2"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <CarouselPrevious className="relative left-0" />
-          </motion.div>
-          <motion.div
-            className="absolute -right-4 top-1/2 -translate-y-1/2"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <CarouselNext className="relative right-0" />
-          </motion.div>
+          <CarouselNext className="!absolute !right-0 md:!-right-4 !top-1/2 !-translate-y-1/2 !shadow-md hover:!shadow-lg focus:!shadow-lg !z-20 !h-10 !w-10 md:!h-12 md:!w-12 !flex !items-center !justify-center" >
+            <FaChevronRight className="!h-5 !w-5 md:!h-6 md:!w-6" />
+          </CarouselNext>
         </Carousel>
         </div>
       </div>

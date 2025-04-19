@@ -1,3 +1,5 @@
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
+
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
@@ -12,14 +14,16 @@ export function SectionHeader({
   className = ""
 }: SectionHeaderProps) {
   return (
-    <div className={`max-w-3xl mx-auto mb-12 ${centered ? "text-center" : ""} ${className}`}>
-      <h2 className="text-4xl font-bold tracking-tight text-gray-800 mb-4">{title}</h2>
-      <div className={`w-20 h-1 bg-radaro-red ${centered ? "mx-auto" : ""} mb-6`} />
-      {subtitle && (
-        <p className="text-lg text-gray-600 leading-relaxed">
-          {subtitle}
-        </p>
-      )}
-    </div>
+    <ScrollReveal>
+      <div className={`max-w-3xl mx-auto mb-12 ${centered ? "text-center" : ""} ${className}`}>
+        <h2 className="text-4xl font-bold tracking-tight text-gray-800 mb-4">{title}</h2>
+        <div className={`w-20 h-1 bg-radaro-red ${centered ? "mx-auto" : ""} mb-6`} />
+        {subtitle && (
+          <p className="text-lg text-gray-600 leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </ScrollReveal>
   );
 }

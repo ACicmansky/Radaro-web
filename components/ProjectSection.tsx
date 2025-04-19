@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Project, projects } from "@/data/Projects"
 import { SectionContainer } from "@/components/ui/SectionContainer"
 import { SectionHeader } from "@/components/ui/SectionHeader"
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 export function ProjectSection() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -33,6 +34,10 @@ export function ProjectSection() {
 
             <div className="mt-8 sm:mt-12 relative px-4 md:px-12">
                 <Carousel className="w-full" opts={{ loop: true }}>
+                    {/* Custom styled carousel buttons with fixed positioning */}
+                    <CarouselPrevious className="!absolute !left-0 md:!-left-4 !top-1/2 !-translate-y-1/2 !shadow-md hover:!shadow-lg focus:!shadow-lg !z-20 !h-10 !w-10 md:!h-12 md:!w-12 !flex !items-center !justify-center" >
+                        <FaChevronLeft className="!h-5 !w-5 md:!h-6 md:!w-6" />
+                    </CarouselPrevious>
                     <CarouselContent>
                         {projects.map((project, index) => (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
@@ -112,20 +117,9 @@ export function ProjectSection() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <motion.div
-                        className="absolute -left-4 top-1/2 -translate-y-1/2"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <CarouselPrevious className="relative left-0" />
-                    </motion.div>
-                    <motion.div
-                        className="absolute -right-4 top-1/2 -translate-y-1/2"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <CarouselNext className="relative right-0" />
-                    </motion.div>
+                    <CarouselNext className="!absolute !right-0 md:!-right-4 !top-1/2 !-translate-y-1/2 !shadow-md hover:!shadow-lg focus:!shadow-lg !z-20 !h-10 !w-10 md:!h-12 md:!w-12 !flex !items-center !justify-center" >
+                        <FaChevronRight className="!h-5 !w-5 md:!h-6 md:!w-6" />
+                    </CarouselNext>
                 </Carousel>
 
                 <AnimatePresence>

@@ -59,13 +59,11 @@ export function Services() {
 
   return (
     <SectionContainer id="services" background="light">
-        <ScrollReveal>
-          <SectionHeader 
-            title="Naše služby"
-            subtitle="Poskytujeme komplexné riešenia pre každú fázu vašich stavebných projektov"
-            centered={true}
-          />
-        </ScrollReveal>
+      <SectionHeader 
+        title="Naše služby"
+        subtitle="Poskytujeme komplexné riešenia pre každú fázu vašich stavebných projektov"
+        centered={true}
+      />
         
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" delay={0.2}>
           {services.map((service, index) => (
@@ -76,7 +74,7 @@ export function Services() {
                 visible: { opacity: 1, y: 0 }
               }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col"
+              className="bg-white p-6 sm:p-7 lg:p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col"
             >
               <motion.div 
                 className="text-radaro-red mb-4"
@@ -85,8 +83,8 @@ export function Services() {
               >
                 {service.icon}
               </motion.div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
-              <p className="text-body-sm text-gray-600 flex-grow">{service.description}</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800 mb-2 sm:mb-3 leading-tight">{service.title}</h3>
+              <p className="text-body-sm text-gray-600 flex-grow mt-1 sm:mt-2">{service.description}</p>
             </motion.div>
           ))}
         </StaggerContainer>
