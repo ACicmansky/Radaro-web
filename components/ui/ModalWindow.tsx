@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import Image from "next/image"
 import { X, Loader2 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -83,31 +84,34 @@ export const Modal = ({ isOpen, onClose, title, description, images }: ModalProp
   }, [isVisible, currentLoadingIndex, images])
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-          onClick={onClose}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
+    typeof window !== "undefined" && createPortal(
+      <AnimatePresence>
+        {isVisible && (
           <motion.div
-            className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ 
-              type: "spring", 
-              damping: 25, 
-              stiffness: 300 
-            }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+            style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh' }}
+            onClick={onClose}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
+            <motion.div
+              className="relative bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden z-[10000]"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ 
+                type: "spring", 
+                damping: 25, 
+                stiffness: 300 
+              }}
+            >
             {/* Header */}
             <motion.div 
-              className="flex justify-between items-center p-8 border-b sticky top-0 bg-white rounded-t-xl z-10"
+              className="flex justify-between items-center p-8 border-b sticky top-0 bg-white rounded-t-xl z-[10001]"
+              style={{ position: 'sticky', top: 0, background: 'white', zIndex: 10001 }}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.3 }}
@@ -190,6 +194,7 @@ export const Modal = ({ isOpen, onClose, title, description, images }: ModalProp
                     <Image
                       src={image || "/placeholder.svg"}
                       alt={`${title} image ${index + 1}`}
+                      fill={true}
                       className={`object-cover w-full h-full transition-transform duration-300 hover:scale-105 ${!imageStatuses[index]?.loaded ? 'opacity-0' : 'opacity-100'}`}
                       loading={index < 3 ? "eager" : "lazy"}
                       onLoad={() => {
@@ -220,8 +225,10 @@ export const Modal = ({ isOpen, onClose, title, description, images }: ModalProp
             </motion.div>
           </motion.div>
         </motion.div>
-      )}
-    </AnimatePresence>
+        )}
+      </AnimatePresence>,
+      document.body
+    )
   )
 }
 
