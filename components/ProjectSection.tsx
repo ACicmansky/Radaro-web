@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Modal } from "@/components/ui/Modal"
+import { Modal } from "@/components/ui/ModalWindow"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { motion, AnimatePresence } from "framer-motion"
 import { Project, projects } from "@/data/Projects"
