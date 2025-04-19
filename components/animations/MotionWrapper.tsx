@@ -1,65 +1,69 @@
 import { ReactNode } from "react";
-import { motion, TargetAndTransition, VariantLabels } from "framer-motion";
-
-type AnimationDirection = "up" | "down" | "left" | "right" | "scale" | "none";
+import { motion } from "framer-motion";
+import { ANIMATION, Direction, createFadeInVariant, getHoverProps, withGPU } from "@/lib/animations";
 
 interface MotionWrapperProps {
   children: ReactNode;
   delay?: number;
   duration?: number;
   className?: string;
-  direction?: AnimationDirection;
+  direction?: Direction;
   hover?: boolean;
   tap?: boolean;
+  useGPU?: boolean;
+  animate?: boolean; // Controls if the component should animate on mount
+  reveal?: boolean; // Controls if the component should animate on scroll
+  threshold?: number; // Viewport threshold for reveal animations
+  once?: boolean; // Whether reveal animation happens only once
 }
 
 export function MotionWrapper({ 
   children, 
   delay = 0, 
-  duration = 0.5,
+  duration = ANIMATION.durations.medium,
   className = "",
   direction = "up",
   hover = false,
-  tap = false
+  tap = false,
+  useGPU = true,
+  animate = true, // Default to animating on mount
+  reveal = false, // Default to not using scroll reveal
+  threshold = ANIMATION.thresholds.standard,
+  once = true
 }: MotionWrapperProps) {
-  // Standard initial and animate values
-  const initial = {
-    opacity: 0,
-    y: direction === "up" ? 20 : direction === "down" ? -20 : 0,
-    x: direction === "left" ? 20 : direction === "right" ? -20 : 0,
-    scale: direction === "scale" ? 0.95 : 1,
-  };
-
-  const animate = { 
-    opacity: 1, 
-    y: 0, 
-    x: 0,
-    scale: 1
-  };
-
-  // Standard hover effect if enabled
-  const hoverEffect = hover ? {
-    scale: 1.05,
-    transition: { duration: 0.2 }
-  } : undefined;
-
-  // Standard tap effect if enabled
-  const tapEffect = tap ? {
-    scale: 0.98,
-    transition: { duration: 0.1 }
-  } : undefined;
-
+  // Get the appropriate variants for the direction
+  const variants = createFadeInVariant(direction, duration);
+  
+  // Get hover and tap effects if enabled
+  const interactionProps = hover || tap ? getHoverProps() : {};
+  
+  // Create animation props based on whether we're doing reveal or standard animation
+  const animationProps = reveal ? {
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once, amount: threshold },
+    variants
+  } : animate ? {
+    initial: "hidden",
+    animate: "visible",
+    variants
+  } : {}; // Empty object if no animation needed
+  
+  // Apply GPU acceleration if enabled
+  const gpuStyles = useGPU ? {
+    style: { willChange: "transform" as const, transformStyle: "preserve-3d" as const }
+  } : {};
+  
   return (
     <motion.div
-      initial={initial}
-      animate={animate}
-      whileHover={hoverEffect}
-      whileTap={tapEffect}
+      {...animationProps}
+      {...gpuStyles}
       transition={{
-        duration: duration,
-        delay: delay,
-        ease: "easeOut"
+        duration,
+        delay,
+        ease: ANIMATION.easings.easeOut
       }}
+      {...interactionProps}
       className={className}
     >
       {children}

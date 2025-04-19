@@ -3,6 +3,8 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { MotionWrapper } from "@/components/animations/MotionWrapper"
+import { AnimationProps } from "@/lib/animation-mixins"
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
@@ -36,19 +38,65 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+    VariantProps<typeof buttonVariants>,
+    Partial<AnimationProps> {
   asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({
+    className, 
+    variant, 
+    size, 
+    asChild = false,
+    // Animation props 
+    animate = false,
+    hover = false,
+    tap = true, // Enable tap animation by default for buttons
+    reveal = false,
+    direction = "up",
+    delay = 0,
+    duration,
+    threshold,
+    once = true,
+    useGPU = true,
+    ...props
+  }, ref) => {
     const Comp = asChild ? Slot : "button"
+    
+    // Create the base class name
+    const baseClassName = cn(
+      buttonVariants({ variant, size, className }),
+      "transform-gpu will-change-transform"
+    )
+    
+    // If any animation is enabled and it's not an asChild button,
+    // wrap the button with MotionWrapper
+    if (!asChild && (animate || hover || tap || reveal)) {
+      return (
+        <MotionWrapper
+          animate={animate}
+          hover={hover}
+          tap={tap}
+          direction={direction}
+          delay={delay}
+          duration={duration}
+          className="contents" // Use contents to not affect layout
+          useGPU={useGPU}
+        >
+          <Comp 
+            className={baseClassName}
+            ref={ref} 
+            {...props}
+          />
+        </MotionWrapper>
+      )
+    }
+    
+    // For asChild or non-animated buttons, use regular component
     return (
       <Comp
-        className={cn(
-          buttonVariants({ variant, size, className }),
-          "transform-gpu will-change-transform" // Add hardware acceleration and stabilize transforms
-        )}
+        className={baseClassName}
         ref={ref}
         {...props}
       />

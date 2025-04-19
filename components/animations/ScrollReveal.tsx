@@ -1,49 +1,57 @@
 import { ReactNode } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { ANIMATION, Direction, createFadeInVariant } from "@/lib/animations";
 
 interface ScrollRevealProps {
   children: ReactNode;
-  direction?: "up" | "down" | "left" | "right";
+  direction?: Direction;
   delay?: number;
   duration?: number;
   className?: string;
   once?: boolean;
   threshold?: number;
+  useGPU?: boolean;
 }
 
 export function ScrollReveal({
   children,
   direction = "up",
   delay = 0,
-  duration = 0.5,
+  duration = ANIMATION.durations.medium,
   className = "",
   once = true,
-  threshold = 0.1,
+  threshold = ANIMATION.thresholds.standard,
+  useGPU = true
 }: ScrollRevealProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, amount: threshold });
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-      y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
-      x: direction === "left" ? 50 : direction === "right" ? -50 : 0,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-    },
+  // Get animation variants based on direction
+  const variants = createFadeInVariant(direction, duration);
+  
+  // Create base animation props
+  const animationProps = {
+    initial: "hidden",
+    animate: isInView ? "visible" : "hidden",
+    variants
   };
+  
+  // Apply GPU acceleration if enabled
+  const gpuStyles = useGPU ? {
+    style: { willChange: "transform" as const, transformStyle: "preserve-3d" as const }
+  } : {};
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={variants}
-      transition={{ duration, delay, ease: "easeOut" }}
+      {...animationProps}
+      {...gpuStyles}
+      transition={{ 
+        duration, 
+        delay, 
+        ease: ANIMATION.easings.easeOut 
+      }}
       className={className}
     >
       {children}
