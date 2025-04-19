@@ -98,7 +98,7 @@ const config: Config = {
         '56': '224px',  // 14x Base
         '64': '256px',  // 16x Base
         // Add section spacing values
-        'section': '5rem',      // 80px - default section spacing
+        'section': '4rem',      // 80px - default section spacing
         'section-sm': '2.5rem', // 40px - smaller section spacing
         'section-lg': '7.5rem', // 120px - larger section spacing 
       },
