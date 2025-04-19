@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { STAGGER, ANIMATION, getStaggerContainerProps } from "@/lib/animations";
+import { ANIMATION, getStaggerContainerProps } from "@/lib/animations";
 
 interface StaggerContainerProps {
   children: ReactNode;
@@ -15,8 +15,6 @@ interface StaggerContainerProps {
 
 export const StaggerContainer = ({
   children,
-  delay = 0,
-  staggerChildren = STAGGER.standard,
   className = "",
   once = true,
   threshold = ANIMATION.thresholds.standard,
@@ -26,7 +24,7 @@ export const StaggerContainer = ({
   const isInView = useInView(ref, { once, amount: threshold });
   
   // Get animation props from utility
-  const animationProps = getStaggerContainerProps(delay, staggerChildren, once, threshold);
+  const animationProps = getStaggerContainerProps(once, threshold);
   
   // Override the animation state based on current view state
   const animate = isInView ? "visible" : "hidden";
