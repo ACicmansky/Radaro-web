@@ -18,7 +18,7 @@ interface SectionContainerProps {
   useGPU?: boolean;
 }
 
-export function SectionContainer({
+export const SectionContainer = ({
   id,
   className = "",
   children,
@@ -33,7 +33,7 @@ export function SectionContainer({
   threshold = 0.1,
   once = true,
   useGPU = true
-}: SectionContainerProps) {
+}: SectionContainerProps) => {
   const bgClasses = {
     white: "bg-white",
     light: "bg-gray-50",

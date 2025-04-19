@@ -34,9 +34,6 @@ export function withAnimation<T extends object>(Component: React.ComponentType<T
       reveal = false,
       threshold = ANIMATION.thresholds.standard,
       once = true,
-      stagger = false,
-      staggerChildren = 0.1,
-      delayChildren = 0,
       useGPU = true,
       className = "",
       ...props
@@ -167,9 +164,6 @@ export const AnimatedElement: React.FC<HTMLMotionProps<"div"> & AnimationProps> 
   reveal = false,
   threshold = ANIMATION.thresholds.standard,
   once = true,
-  stagger = false,
-  staggerChildren = 0.1,
-  delayChildren = 0,
   useGPU = true,
   className = "",
   ...props

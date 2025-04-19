@@ -5,7 +5,7 @@ import { NavLogo } from "./NavLogo"
 import { NAV_ITEMS, type NavItem } from "./types"
 import { scrollToSection } from "@/lib/scroll"
 
-export function DesktopNavigation() {
+export const DesktopNavigation = () => {
   const handleNavClick = (section: string) => {
     scrollToSection(section)
   }

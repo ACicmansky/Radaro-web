@@ -14,7 +14,7 @@ interface ScrollRevealProps {
   useGPU?: boolean;
 }
 
-export function ScrollReveal({
+export const ScrollReveal = ({
   children,
   direction = "up",
   delay = 0,
@@ -23,7 +23,7 @@ export function ScrollReveal({
   once = true,
   threshold = ANIMATION.thresholds.standard,
   useGPU = true
-}: ScrollRevealProps) {
+}: ScrollRevealProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, amount: threshold });
 

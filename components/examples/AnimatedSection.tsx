@@ -3,9 +3,9 @@ import { Button } from '@/components/ui/button';
 import { SectionContainer } from '@/components/ui/SectionContainer';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { StaggerContainer } from '@/components/animations/StaggerContainer';
-import { ANIMATION, STAGGER } from '@/lib/animations';
+import { STAGGER } from '@/lib/animations';
 
-export function AnimatedSection() {
+export const AnimatedSection = () => {
   return (
     <SectionContainer 
       id="animated-example"

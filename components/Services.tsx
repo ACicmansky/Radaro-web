@@ -3,12 +3,11 @@
 import { FaUserTie, FaHardHat, FaSearchPlus, FaCheckCircle, FaCogs, 
          FaExclamationTriangle, FaLightbulb, FaFileAlt, FaUsers } from "react-icons/fa"
 import { motion } from "framer-motion"
-import { ScrollReveal } from "@/components/animations/ScrollReveal"
 import { StaggerContainer } from "@/components/animations/StaggerContainer"
 import { SectionContainer } from "@/components/ui/SectionContainer"
 import { SectionHeader } from "@/components/ui/SectionHeader"
 
-export function Services() {
+export const Services = () => {
   const services = [
     {
       icon: <FaUserTie className="w-6 h-6" />,

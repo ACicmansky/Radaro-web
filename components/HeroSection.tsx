@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/scroll"
 import { motion } from "framer-motion"
 
-export function HeroSection() {
+export const HeroSection = () => {
   return (
     <section id="hero"
       className="relative min-h-[70vh] py-16 sm:py-20 flex items-center justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"

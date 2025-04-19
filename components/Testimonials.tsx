@@ -5,12 +5,11 @@ import * as React from "react"
 import Autoplay from "embla-carousel-autoplay"
 import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import { motion } from "framer-motion"
-import { ScrollReveal } from "@/components/animations/ScrollReveal"
 import { testimonials } from "@/data/Testimonials"
 import { SectionContainer } from "@/components/ui/SectionContainer"
 import { SectionHeader } from "@/components/ui/SectionHeader"
 
-export function Testimonials() {
+export const Testimonials = () => {
   const [api, setApi] = React.useState<any>(null)
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })

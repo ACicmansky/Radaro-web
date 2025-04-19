@@ -8,7 +8,7 @@ type NavLogoProps = {
   className?: string
 }
 
-export function NavLogo({ size = "medium", className = "" }: NavLogoProps) {
+export const NavLogo = ({ size = "medium", className = "" }: NavLogoProps) => {
   // Define sizing based on the size prop
   const dimensions = {
     small: {

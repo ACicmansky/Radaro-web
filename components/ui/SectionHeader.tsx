@@ -17,7 +17,7 @@ interface SectionHeaderProps {
   useGPU?: boolean;
 }
 
-export function SectionHeader({
+export const SectionHeader = ({
   title,
   subtitle,
   centered = true,
@@ -31,7 +31,7 @@ export function SectionHeader({
   threshold = 0.1,
   once = true,
   useGPU = true
-}: SectionHeaderProps) {
+}: SectionHeaderProps) => {
   // Content to be rendered
   const content = (
     <div className={`max-w-3xl mx-auto mb-12 ${centered ? "text-center" : ""} ${className}`}>

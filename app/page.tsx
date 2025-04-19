@@ -7,18 +7,18 @@ import { Contact } from "@/components/Contact"
 import { Footer } from "@/components/Footer"
 import { ProjectSection } from "@/components/ProjectSection"
 
-export default function Home() {
-  return (
-    <main className="min-h-screen">
-      <Navigation />
-      <HeroSection />
-      <About />
-      <ProjectSection />
-      <Services />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </main>
-  )
-}
+const Home = () => (
+  <main className="min-h-screen">
+    <Navigation />
+    <HeroSection />
+    <About />
+    <ProjectSection />
+    <Services />
+    <Testimonials />
+    <Contact />
+    <Footer />
+  </main>
+);
+
+export default Home;
 

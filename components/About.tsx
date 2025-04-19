@@ -4,11 +4,10 @@ import Image from "next/image"
 import { FaLinkedin, FaEnvelope } from "react-icons/fa"
 import { scrollToSection } from "@/lib/scroll"
 import { motion } from "framer-motion"
-import { ScrollReveal } from "@/components/animations/ScrollReveal"
 import { SectionContainer } from "@/components/ui/SectionContainer"
 import { SectionHeader } from "@/components/ui/SectionHeader"
 
-export function About() {
+export const About = () => {
   return (
     <SectionContainer id="about" background="light">
       <SectionHeader title="O nás" centered={true} />

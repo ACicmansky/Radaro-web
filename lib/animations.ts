@@ -116,8 +116,6 @@ export const getScrollRevealProps = (
 });
 
 export const getStaggerContainerProps = (
-  delay = 0,
-  staggerChildren = STAGGER.standard,
   once = true,
   threshold = ANIMATION.thresholds.standard
 ) => ({

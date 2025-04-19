@@ -98,69 +98,69 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="sk">
-      <head>
-        <Script
-          id="local-business-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "RADARO",
-              "image": "https://radaro.sk/images/other/Logo.png",
-              "@id": "https://radaro.sk",
-              "url": "https://radaro.sk",
-              "telephone": "+421902851275",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Petra Víťazoslava Rovnianka 5136/9",
-                "addressLocality": "Martin",
-                "postalCode": "03601",
-                "addressCountry": "SK"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 49.09687,
-                "longitude": 18.91743
-              },
-              "openingHoursSpecification": [
-                {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday"
-                  ],
-                  "opens": "09:00",
-                  "closes": "17:00"
-                }
-              ],
-              // "sameAs": [
-              //   // "https://www.facebook.com/radaro", TODO
-              //   // "https://www.instagram.com/radaro"
-              // ],
-              "priceRange": "€€",
-              "servesCuisine": "Construction Services",
-              "description": "Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie. Stavebný dozor, technické poradenstvo a riadenie projektov."
-            })
-          }}
-        />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <Toaster />
-      </body>
-    </html>
-  );
-}
+}>) => (
+  <html lang="sk">
+    <head>
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "RADARO",
+            "image": "https://radaro.sk/images/other/Logo.png",
+            "@id": "https://radaro.sk",
+            "url": "https://radaro.sk",
+            "telephone": "+421902851275",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Petra Víťazoslava Rovnianka 5136/9",
+              "addressLocality": "Martin",
+              "postalCode": "03601",
+              "addressCountry": "SK"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 49.09687,
+              "longitude": 18.91743
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "opens": "09:00",
+                "closes": "17:00"
+              }
+            ],
+            // "sameAs": [
+            //   // "https://www.facebook.com/radaro", TODO
+            //   // "https://www.instagram.com/radaro"
+            // ],
+            "priceRange": "€€",
+            "servesCuisine": "Construction Services",
+            "description": "Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie. Stavebný dozor, technické poradenstvo a riadenie projektov."
+          })
+        }}
+      />
+    </head>
+    <body
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    >
+      {children}
+      <Toaster />
+    </body>
+  </html>
+);
+
+export default RootLayout;

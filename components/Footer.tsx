@@ -3,7 +3,7 @@
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa"
 import { motion } from "framer-motion"
 
-export function Footer() {
+export const Footer = () => {
   const year = new Date().getFullYear()
   
   return (

@@ -57,8 +57,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     direction = "up",
     delay = 0,
     duration,
-    threshold,
-    once = true,
     useGPU = true,
     ...props
   }, ref) => {

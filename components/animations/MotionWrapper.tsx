@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { ANIMATION, Direction, createFadeInVariant, getHoverProps, withGPU } from "@/lib/animations";
+import { ANIMATION, Direction, createFadeInVariant, getHoverProps } from "@/lib/animations";
 
 interface MotionWrapperProps {
   children: ReactNode;
@@ -17,7 +17,7 @@ interface MotionWrapperProps {
   once?: boolean; // Whether reveal animation happens only once
 }
 
-export function MotionWrapper({ 
+export const MotionWrapper = ({ 
   children, 
   delay = 0, 
   duration = ANIMATION.durations.medium,
@@ -30,7 +30,7 @@ export function MotionWrapper({
   reveal = false, // Default to not using scroll reveal
   threshold = ANIMATION.thresholds.standard,
   once = true
-}: MotionWrapperProps) {
+}: MotionWrapperProps) => {
   // Get the appropriate variants for the direction
   const variants = createFadeInVariant(direction, duration);
   

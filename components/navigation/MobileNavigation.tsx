@@ -7,7 +7,7 @@ import { NavLogo } from "./NavLogo"
 import { MobileMenu } from "./MobileMenu"
 import { scrollToSection } from "@/lib/scroll"
 
-export function MobileNavigation() {
+export const MobileNavigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   
   const handleContactClick = () => {

@@ -10,7 +10,7 @@ type MobileMenuProps = {
   onClose: () => void
 }
 
-export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const handleNavClick = (section: string) => {
     scrollToSection(section)
     onClose()

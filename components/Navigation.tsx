@@ -3,7 +3,7 @@
 import { DesktopNavigation } from "@/components/navigation/DesktopNavigation"
 import { MobileNavigation } from "@/components/navigation/MobileNavigation"
 
-export function Navigation() {
+export const Navigation = () => {
   return (
     <>
       {/* Render mobile navigation */}

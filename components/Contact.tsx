@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
 import { motion } from "framer-motion"
-import { ScrollReveal } from "@/components/animations/ScrollReveal"
 import { SectionContainer } from "@/components/ui/SectionContainer"
 import { SectionHeader } from "@/components/ui/SectionHeader"
 
@@ -15,7 +14,7 @@ type FormData = {
   message: string
 }
 
-export function Contact() {
+export const Contact = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",

@@ -13,7 +13,7 @@ interface StaggerContainerProps {
   useGPU?: boolean;
 }
 
-export function StaggerContainer({
+export const StaggerContainer = ({
   children,
   delay = 0,
   staggerChildren = STAGGER.standard,
@@ -21,7 +21,7 @@ export function StaggerContainer({
   once = true,
   threshold = ANIMATION.thresholds.standard,
   useGPU = true
-}: StaggerContainerProps) {
+}: StaggerContainerProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, amount: threshold });
   

@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
+import Image from "next/image"
 import { X, Loader2 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -17,11 +18,10 @@ type ImageStatus = {
   error: boolean
 }
 
-export function Modal({ isOpen, onClose, title, description, images }: ModalProps) {
+export const Modal = ({ isOpen, onClose, title, description, images }: ModalProps) => {
   const [isVisible, setIsVisible] = useState(false)
   const [imageStatuses, setImageStatuses] = useState<ImageStatus[]>([])
   const [currentLoadingIndex, setCurrentLoadingIndex] = useState(0)
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([])
   
   // Initialize image statuses when images array changes
   useEffect(() => {
@@ -187,12 +187,7 @@ export function Modal({ isOpen, onClose, title, description, images }: ModalProp
                         <Loader2 className="h-8 w-8 text-radaro-red animate-spin" />
                       </div>
                     )}
-                    <img
-                      ref={(el) => {
-                        if (imageRefs.current) {
-                          imageRefs.current[index] = el
-                        }
-                      }}
+                    <Image
                       src={image || "/placeholder.svg"}
                       alt={`${title} image ${index + 1}`}
                       className={`object-cover w-full h-full transition-transform duration-300 hover:scale-105 ${!imageStatuses[index]?.loaded ? 'opacity-0' : 'opacity-100'}`}
