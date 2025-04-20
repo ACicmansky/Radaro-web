@@ -1,11 +1,23 @@
 "use client"
 
+import React, { useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/scroll"
 import { motion } from "framer-motion"
+import { useLogoVisibility } from "@/contexts/LogoVisibilityContext"
+import { useIntersectionObserver } from "usehooks-ts"
 
 export const HeroSection = () => {
+  const { setIsHeroLogoVisible } = useLogoVisibility()
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.6,
+  })
+
+  useEffect(() => {
+    setIsHeroLogoVisible(isIntersecting ?? true)
+  }, [isIntersecting, setIsHeroLogoVisible])
+
   return (
     <section id="hero"
       className="relative min-h-[70vh] py-16 sm:py-20 flex items-center justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900"
@@ -25,6 +37,7 @@ export const HeroSection = () => {
       
       <div className="relative z-10 text-center text-white px-3 sm:px-4 max-w-5xl mx-auto">
         <motion.div 
+          ref={ref}
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

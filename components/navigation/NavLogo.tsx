@@ -1,7 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
+import { useLogoVisibility } from "@/contexts/LogoVisibilityContext";
 
 type NavLogoProps = {
   size?: "small" | "medium" | "large"
@@ -9,29 +10,36 @@ type NavLogoProps = {
 }
 
 export const NavLogo = ({ size = "medium", className = "" }: NavLogoProps) => {
+  const { isHeroLogoVisible } = useLogoVisibility()
+
   // Define sizing based on the size prop
   const dimensions = {
     small: {
-      height: "h-10",
+      height: "h-14",
       width: "w-[120px]"
     },
     medium: {
-      height: "h-12 sm:h-14",
+      height: "h-16 sm:h-18",
       width: "w-[140px] sm:w-[160px]"
     },
     large: {
-      height: "h-14 sm:h-16",
+      height: "h-18 sm:h-20",
       width: "w-[160px] sm:w-[220px]"
     }
   }
-
   const { height, width } = dimensions[size]
-  
+
   return (
-    <motion.div 
+    <AnimatePresence>
+  {!isHeroLogoVisible && (
+    <motion.div
+      key="nav-logo"
       className={`relative ${height} ${width} ${className}`}
       whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
     >
       <Image
         src="/images/other/navigation-logo.png"
@@ -42,5 +50,7 @@ export const NavLogo = ({ size = "medium", className = "" }: NavLogoProps) => {
         priority
       />
     </motion.div>
+  )}
+</AnimatePresence>
   )
 }

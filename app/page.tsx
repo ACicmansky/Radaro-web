@@ -6,11 +6,14 @@ import { Testimonials } from "@/components/Testimonials"
 import { Contact } from "@/components/Contact"
 import { Footer } from "@/components/Footer"
 import { ProjectSection } from "@/components/ProjectSection"
+import { LogoVisibilityProvider } from "@/contexts/LogoVisibilityContext"
 
 const Home = () => (
   <main className="min-h-screen">
-    <Navigation />
-    <HeroSection />
+    <LogoVisibilityProvider>
+      <Navigation />
+      <HeroSection />
+    </LogoVisibilityProvider>
     <About />
     <ProjectSection />
     <Services />
