@@ -66,7 +66,7 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   }
 
   return (
-    <motion.div 
+    <motion.div
       className="fixed inset-0 z-50 lg:hidden"
       initial="closed"
       animate={isOpen ? "open" : "closed"}
@@ -74,14 +74,14 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       style={{ pointerEvents: isOpen ? "auto" : "none" }}
     >
       {/* Backdrop */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-black/40 backdrop-blur-sm"
         onClick={onClose}
         variants={backdropVariants}
       />
-      
+
       {/* Menu container */}
-      <motion.div 
+      <motion.div
         className="absolute top-0 right-0 w-3/4 max-w-sm h-full bg-white shadow-xl flex flex-col overflow-y-auto"
         variants={menuVariants}
       >
@@ -89,17 +89,17 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <div className="relative flex flex-col h-full p-8">
           {/* Pattern background */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-            <div 
-              className="absolute inset-0" 
-              style={{ 
-                backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', 
-                backgroundSize: '20px 20px' 
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
+                backgroundSize: '20px 20px'
               }}
             />
           </div>
-          
+
           {/* Close button (X) */}
-          <motion.div 
+          <motion.div
             className="absolute top-4 right-4"
             variants={itemVariants}
           >
@@ -115,33 +115,33 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               </svg>
             </motion.button>
           </motion.div>
-          
+
           {/* Logo */}
-          <motion.div 
+          <motion.div
             className="flex justify-center mb-12 mt-4"
             variants={itemVariants}
           >
-            <NavLogo size="medium" />
+            <NavLogo size="medium" useHiding={false} />
           </motion.div>
-              
+
           {/* Navigation items */}
           <motion.div className="flex flex-col space-y-2">
             {NAV_ITEMS.map((item, index) => (
-              <motion.div 
-                key={item.section} 
+              <motion.div
+                key={item.section}
                 className="group"
                 variants={itemVariants}
               >
                 <button
                   onClick={() => handleNavClick(item.section)}
-                  className={`w-full py-4 px-6 text-left rounded-md transition-all duration-300 ${item.isCta 
-                    ? 'text-white bg-radaro-red hover:bg-radaro-red-hover font-medium shadow-md hover:shadow-lg' 
+                  className={`w-full py-4 px-6 text-left rounded-md transition-all duration-300 ${item.isCta
+                    ? 'text-white bg-radaro-red hover:bg-radaro-red-hover font-medium shadow-md hover:shadow-lg'
                     : 'text-emphasis hover:bg-gray-50 hover:text-emphasis'}`}
                 >
                   <div className="relative flex items-center">
                     {/* Icon indicators for each menu item */}
                     {!item.isCta && (
-                      <span className="mr-3 text-radaro-red opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="mr-3 text-radaro-red transition-opacity duration-300">
                         {item.section === "about" && (
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -183,19 +183,19 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               </motion.div>
             ))}
           </motion.div>
-          
+
           {/* Footer with social links */}
-          <motion.div 
+          <motion.div
             className="mt-auto pb-10 text-center"
             variants={itemVariants}
           >
             {/* Social media icons */}
-            <motion.div 
+            <motion.div
               className="flex justify-center space-x-6 mb-8"
               variants={itemVariants}
             >
-              <motion.a 
-                href="#" 
+              <motion.a
+                href="#"
                 className="text-gray-400 hover:text-radaro-red transition-colors duration-200"
                 whileHover={{ scale: 1.2, y: -2, color: "#EF4444" }}
                 whileTap={{ scale: 0.9 }}
@@ -204,8 +204,8 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                 </svg>
               </motion.a>
-              <motion.a 
-                href="#" 
+              <motion.a
+                href="#"
                 className="text-gray-400 hover:text-radaro-red transition-colors duration-200"
                 whileHover={{ scale: 1.2, y: -2, color: "#EF4444" }}
                 whileTap={{ scale: 0.9 }}
@@ -215,24 +215,24 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 </svg>
               </motion.a>
             </motion.div>
-            
+
             {/* Copyright */}
-            <motion.div 
+            <motion.div
               className="text-body-sm text-gray-400 hover:text-gray-500 transition-colors duration-300"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
             >
               <span className="mr-1">RADARO</span>
-              <motion.span 
+              <motion.span
                 className="text-radaro-red"
-                animate={{ 
+                animate={{
                   scale: [1, 1.2, 1],
                   rotate: [0, 10, 0]
                 }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity, 
-                  repeatDelay: 4 
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 4
                 }}
               >
                 ©

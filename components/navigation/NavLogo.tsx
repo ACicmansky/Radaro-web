@@ -6,10 +6,11 @@ import { useLogoVisibility } from "@/contexts/LogoVisibilityContext";
 
 type NavLogoProps = {
   size?: "small" | "medium" | "large"
+  useHiding?: boolean
   className?: string
 }
 
-export const NavLogo = ({ size = "medium", className = "" }: NavLogoProps) => {
+export const NavLogo = ({ size = "medium", useHiding = true, className = "" }: NavLogoProps) => {
   const { isHeroLogoVisible } = useLogoVisibility()
 
   // Define sizing based on the size prop
@@ -29,28 +30,51 @@ export const NavLogo = ({ size = "medium", className = "" }: NavLogoProps) => {
   }
   const { height, width } = dimensions[size]
 
+  // Always visible, no hiding, no animation
+  if (!useHiding) {
+    return (
+      <motion.div
+        className={`relative ${height} ${width} ${className}`}
+        whileHover={{ scale: 1.05 }}
+        animate={{ opacity: 1 }}
+        initial={false}
+        transition={{ duration: 0.3 }}
+      >
+        <Image
+          src="/images/other/navigation-logo.png"
+          alt="RADARO logo"
+          fill
+          className="object-contain"
+          sizes={size === "large" ? "220px" : size === "medium" ? "160px" : "120px"}
+          priority
+        />
+      </motion.div>
+    );
+  }
+
+  // Animated, conditional visibility
   return (
     <AnimatePresence>
-  {!isHeroLogoVisible && (
-    <motion.div
-      key="nav-logo"
-      className={`relative ${height} ${width} ${className}`}
-      whileHover={{ scale: 1.05 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-    >
-      <Image
-        src="/images/other/navigation-logo.png"
-        alt="RADARO logo"
-        fill
-        className="object-contain"
-        sizes={size === "large" ? "220px" : size === "medium" ? "160px" : "120px"}
-        priority
-      />
-    </motion.div>
-  )}
-</AnimatePresence>
+      {!isHeroLogoVisible && (
+        <motion.div
+          key="nav-logo"
+          className={`relative ${height} ${width} ${className}`}
+          whileHover={{ scale: 1.05 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+        >
+          <Image
+            src="/images/other/navigation-logo.png"
+            alt="RADARO logo"
+            fill
+            className="object-contain"
+            sizes={size === "large" ? "220px" : size === "medium" ? "160px" : "120px"}
+            priority
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
