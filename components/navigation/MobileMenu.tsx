@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { NAV_ITEMS } from "./types"
 import { scrollToSection } from "@/lib/scroll"
 import { NavLogo } from "./NavLogo"
+import { hoverGrow } from "@/lib/animation-presets"
 
 type MobileMenuProps = {
   isOpen: boolean
@@ -131,6 +132,7 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 key={item.section}
                 className="group"
                 variants={itemVariants}
+                {...hoverGrow()}
               >
                 <button
                   onClick={() => handleNavClick(item.section)}

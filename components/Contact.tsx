@@ -6,6 +6,7 @@ import { toast } from "sonner"
 import { motion } from "framer-motion"
 import { SectionContainer } from "@/components/ui/SectionContainer"
 import { SectionHeader } from "@/components/ui/SectionHeader"
+import { fadeInUp, fadeIn, hoverGrow } from "@/lib/animation-presets"
 
 type FormData = {
   name: string
@@ -91,16 +92,11 @@ export const Contact = () => {
         <div className="flex justify-center">
           <motion.div 
             className="bg-white rounded-lg shadow-md p-8 max-w-md w-full"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            {...fadeInUp(0.2)}
           >
             <motion.h3 
               className="text-heading-subsection mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
+              {...fadeIn()}
             >
               Nechajte nám správu
             </motion.h3>
@@ -108,14 +104,10 @@ export const Contact = () => {
             <form className="space-y-4" onSubmit={handleSubmit}>
               <motion.div 
                 className="grid grid-cols-1 sm:grid-cols-2 gap-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
+                {...fadeIn()}
               >
                 <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
+                  {...fadeIn()}
                 >
                   <label htmlFor="name" className="block text-sm font-medium text-emphasis mb-2">
                     Meno a priezvisko <span className="text-radaro-red">*</span>
@@ -130,9 +122,7 @@ export const Contact = () => {
                   />
                 </motion.div>
                 <motion.div
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
+                  {...fadeIn()}
                 >
                   <label htmlFor="email" className="block text-sm font-medium text-emphasis mb-2">
                     Email <span className="text-radaro-red">*</span>
@@ -149,9 +139,7 @@ export const Contact = () => {
               </motion.div>
               
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
+                {...fadeIn()}
               >
                 <label htmlFor="subject" className="block text-sm font-medium text-emphasis mb-2">
                   Predmet <span className="text-radaro-red">*</span>
@@ -167,9 +155,7 @@ export const Contact = () => {
               </motion.div>
               
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.7, duration: 0.5 }}
+                {...fadeIn()}
               >
                 <label htmlFor="message" className="block text-sm font-medium text-emphasis mb-2">
                   Správa <span className="text-radaro-red">*</span>
@@ -185,11 +171,9 @@ export const Contact = () => {
               </motion.div>
               
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
+                {...fadeIn()}
               >
-                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                <motion.div {...hoverGrow()}>
                   <Button 
                     type="submit" 
                     className="w-full bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-3"

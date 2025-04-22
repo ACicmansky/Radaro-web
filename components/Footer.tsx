@@ -2,81 +2,58 @@
 
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa"
 import { motion } from "framer-motion"
+import { fadeInUp, fadeIn, hoverGrow } from "@/lib/animation-presets"
 
 export const Footer = () => {
   const year = new Date().getFullYear()
-  
+
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-6 py-12">
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
+          {...fadeInUp()}
         >
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            {...fadeInUp()}
           >
-            <motion.h3 
+            <motion.h3
               className="text-white text-heading-subsection mb-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.5 }}
+              {...fadeIn()}
             >
               RADARO s.r.o.
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="mb-4 text-body text-gray-300"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              {...fadeIn()}
             >
               Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie.
             </motion.p>
             <motion.p
               className="mb-4 text-body text-gray-300"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.5 }}
+              {...fadeIn()}
             >
               IČO: 56 715 811
             </motion.p>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
+            {...fadeInUp()}
             className="md:ml-auto md:max-w-xs"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <motion.h3 
+            <motion.h3
               className="text-white text-heading-subsection mb-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.5 }}
+              {...fadeIn()}
             >
               Kontaktné údaje
             </motion.h3>
             <div className="space-y-3">
-              <motion.div 
+              <motion.div
+                {...fadeIn()}
                 className="flex items-start"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.5 }}
               >
                 <motion.div
-                  whileHover={{ scale: 1.2, color: "#EF4444" }}
+                  {...hoverGrow()}
                 >
                   <FaMapMarkerAlt className="mr-3 mt-1 text-radaro-red" />
                 </motion.div>
@@ -86,42 +63,36 @@ export const Footer = () => {
                   03601 Martin
                 </span>
               </motion.div>
-              <motion.div 
+              <motion.div
+                {...fadeIn()}
                 className="flex items-center"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.5 }}
               >
                 <motion.div
-                  whileHover={{ scale: 1.2, color: "#EF4444" }}
+                  {...hoverGrow()}
                 >
                   <FaEnvelope className="mr-3 text-radaro-red" />
                 </motion.div>
-                <motion.a 
-                  href="mailto:info@radaro.sk" 
+                <motion.a
+                  href="mailto:info@radaro.sk"
                   className="text-gray-300 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.05, color: "#FFFFFF" }}
+                  {...hoverGrow()}
                 >
                   info@radaro.sk
                 </motion.a>
               </motion.div>
-              <motion.div 
+              <motion.div
+                {...fadeIn()}
                 className="flex items-center"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.5 }}
               >
                 <motion.div
-                  whileHover={{ scale: 1.2, color: "#EF4444" }}
+                  {...hoverGrow()}
                 >
                   <FaPhone className="mr-3 text-radaro-red" />
                 </motion.div>
-                <motion.a 
-                  href="tel:+421902851275" 
+                <motion.a
+                  href="tel:+421902851275"
                   className="text-gray-300 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.05, color: "#FFFFFF" }}
+                  {...hoverGrow()}
                 >
                   +421 902 851 275
                 </motion.a>
@@ -129,55 +100,43 @@ export const Footer = () => {
             </div>
           </motion.div>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="border-t border-gray-800 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.7, duration: 0.5 }}
+          {...fadeInUp()}
         >
-          <motion.p 
+          <motion.p
             className="text-body-sm text-gray-300"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8, duration: 0.5 }}
+            {...fadeInUp()}
           >
-           Design by &copy; {year} Mgr. Andrej Čičmanský. Všetky práva vyhradené.
+            Design by &copy; {year} Mgr. Andrej Čičmanský. Všetky práva vyhradené.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             className="flex space-x-4 mt-3 md:mt-0"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.9, duration: 0.5 }}
+            {...fadeInUp()}
           >
-            <motion.a 
-              href="https://github.com/ACicmansky" 
-              className="hover:text-white transition-colors" 
+            <motion.a
+              href="https://github.com/ACicmansky"
+              className="hover:text-white transition-colors"
               target="_blank" rel="noopener noreferrer"
-              whileHover={{ scale: 1.3, y: -3 }}
-              whileTap={{ scale: 0.9 }}
+              {...hoverGrow()}
             >
               <FaGithub size={18} className="hover:text-radaro-red" />
             </motion.a>
-            <motion.a 
-              href="https://www.linkedin.com/in/andrej-cicmansky/" 
+            <motion.a
+              href="https://www.linkedin.com/in/andrej-cicmansky/"
               className="hover:text-white transition-colors"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.3, y: -3 }}
-              whileTap={{ scale: 0.9 }}
+              {...hoverGrow()}
             >
               <FaLinkedin size={18} className="hover:text-radaro-red" />
             </motion.a>
-            <motion.a 
-              href="mailto:andrej.cicmansky@gmail.com" 
+            <motion.a
+              href="mailto:andrej.cicmansky@gmail.com"
               className="hover:text-white transition-colors"
-              whileHover={{ scale: 1.3, y: -3 }}
-              whileTap={{ scale: 0.9 }}
+              {...hoverGrow()}
             >
               <FaEnvelope size={18} className="hover:text-radaro-red" />
             </motion.a>

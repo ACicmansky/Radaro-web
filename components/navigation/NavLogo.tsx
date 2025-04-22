@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
 import { useLogoVisibility } from "@/contexts/LogoVisibilityContext";
+import { hoverGrow } from "@/lib/animation-presets";
 
 type NavLogoProps = {
   size?: "small" | "medium" | "large"
@@ -35,10 +36,10 @@ export const NavLogo = ({ size = "medium", useHiding = true, className = "" }: N
     return (
       <motion.div
         className={`relative ${height} ${width} ${className}`}
-        whileHover={{ scale: 1.05 }}
         animate={{ opacity: 1 }}
         initial={false}
         transition={{ duration: 0.3 }}
+        {...hoverGrow(false)}
       >
         <Image
           src="/images/other/navigation-logo.png"
@@ -59,11 +60,11 @@ export const NavLogo = ({ size = "medium", useHiding = true, className = "" }: N
         <motion.div
           key="nav-logo"
           className={`relative ${height} ${width} ${className}`}
-          whileHover={{ scale: 1.05 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
+          {...hoverGrow(false)}
         >
           <Image
             src="/images/other/navigation-logo.png"

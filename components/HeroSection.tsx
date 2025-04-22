@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/scroll"
 import { motion } from "framer-motion"
+import { fadeInUp, fadeIn, hoverGrow } from "@/lib/animation-presets"
 import { useLogoVisibility } from "@/contexts/LogoVisibilityContext"
 import { useIntersectionObserver } from "usehooks-ts"
 
@@ -38,9 +39,7 @@ export const HeroSection = () => {
       <div className="relative z-10 text-center text-white px-3 sm:px-4 max-w-5xl mx-auto">
         <motion.div 
           ref={ref}
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          {...fadeInUp(0)}
           className="relative h-32 sm:h-36 md:h-48 w-[280px] sm:w-[350px] md:w-[500px] mx-auto mb-8 sm:mb-6 lg:mb-1"
         >
           <Image
@@ -53,28 +52,22 @@ export const HeroSection = () => {
           />
         </motion.div>
         <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          {...fadeIn(0.3)}
           className="text-body-lg mb-6 max-w-3xl mx-auto leading-relaxed text-gray-200 px-2"
         >
           Profesionálne stavebné služby s dôrazom na kvalitu, efektivitu a inovácie
         </motion.p>
         <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          {...fadeIn(0.5)}
           className="text-body mb-8 max-w-2xl mx-auto text-gray-300 px-2"
         >
           Prinášame odborný dohľad a profesionálne riadenie pre vaše stavebné projekty
         </motion.p>
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          {...fadeInUp(0.7)}
           className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0"
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <motion.div {...hoverGrow()}>
             <Button 
               className="bg-radaro-red hover:bg-radaro-red-hover text-white font-medium py-3 px-6 h-auto w-full"
               onClick={() => scrollToSection("contact")}
@@ -82,7 +75,7 @@ export const HeroSection = () => {
               Bezplatná konzultácia
             </Button>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+          <motion.div {...hoverGrow()}>
             <Button 
               className="bg-white hover:bg-gray-100 text-gray-800 font-medium py-3 px-6 h-auto w-full"
               onClick={() => scrollToSection("projects")}

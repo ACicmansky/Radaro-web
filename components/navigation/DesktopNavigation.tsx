@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { NavLogo } from "./NavLogo"
 import { NAV_ITEMS, type NavItem } from "./types"
 import { scrollToSection } from "@/lib/scroll"
+import { hoverGrow } from "@/lib/animation-presets"
 
 export const DesktopNavigation = () => {
   const handleNavClick = (section: string) => {
@@ -64,7 +65,7 @@ export const DesktopNavigation = () => {
               variants={itemVariants}
               initial="initial"
               animate="animate"
-              whileHover={{ y: -2 }}
+              {...hoverGrow()}
             >
               <button
                 onClick={() => handleNavClick(item.section)}
