@@ -1,68 +1,54 @@
-import { MotionWrapper } from "@/components/animations/MotionWrapper";
-import { Direction } from "@/lib/animations";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
   centered?: boolean;
   className?: string;
-  // Animation props
-  animate?: boolean;
-  reveal?: boolean;
-  direction?: Direction;
-  delay?: number;
-  duration?: number;
-  threshold?: number;
-  once?: boolean;
-  useGPU?: boolean;
 }
 
 export const SectionHeader = ({
   title,
   subtitle,
   centered = true,
-  className = "",
-  // Animation props
-  animate = false,
-  reveal = true, // Default to reveal animation for section headers
-  direction = "up",
-  delay = 0.1, // Small default delay for headers
-  duration,
-  threshold = 0.1,
-  once = true,
-  useGPU = true
+  className = ""
 }: SectionHeaderProps) => {
-  // Content to be rendered
-  const content = (
-    <div className={`max-w-3xl mx-auto mb-12 ${centered ? "text-center" : ""} ${className}`}>
-      <h2 className="text-4xl font-bold tracking-tight text-gray-800 mb-4">{title}</h2>
-      <div className={`w-20 h-1 bg-radaro-red ${centered ? "mx-auto" : ""} mb-6`} />
-      {subtitle && (
-        <p className="text-lg text-gray-600 leading-relaxed">
-          {subtitle}
-        </p>
-      )}
-    </div>
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+  const variants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      x: 0,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+    },
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={variants}
+      transition={{ duration: 0.5, delay: 0, ease: "easeOut" }}
+      className={className}
+    >
+      <div className={`max-w-3xl mx-auto mb-12 ${centered ? "text-center" : ""}`}>
+        <h2 className="text-4xl font-bold tracking-tight text-gray-800 mb-4">{title}</h2>
+        <div className={`w-20 h-1 bg-radaro-red ${centered ? "mx-auto" : ""} mb-6`} />
+        {subtitle && (
+          <p className="text-lg text-gray-600 leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </motion.div>
   );
-  
-  // If animation is enabled, wrap with MotionWrapper
-  if (animate || reveal) {
-    return (
-      <MotionWrapper
-        animate={animate}
-        reveal={reveal}
-        direction={direction}
-        delay={delay}
-        duration={duration}
-        threshold={threshold}
-        once={once}
-        useGPU={useGPU}
-      >
-        {content}
-      </MotionWrapper>
-    );
-  }
-  
-  // Otherwise return the content without animation
-  return content;
 }
