@@ -1,9 +1,5 @@
 # RADARO - Profesionálne stavebné služby
 
-![RADARO Logo](/public/images/other/hero-logo.PNG)
-
-## Overview
-
 RADARO is a modern, responsive website for a professional construction services company. The site showcases the company's services, projects, testimonials, and provides a contact form for potential clients to reach out. The site is built with Next.js and Tailwind CSS, and is deployed on Vercel. Preview live site [here](https://radaro.vercel.app/).
 
 ## Features
