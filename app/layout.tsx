@@ -1,19 +1,7 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner"
-import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://radaro.sk'),
@@ -155,7 +143,7 @@ const RootLayout = ({
       />
     </head>
     <body
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`antialiased`}
     >
       {children}
       <Toaster />

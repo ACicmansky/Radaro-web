@@ -4,11 +4,11 @@
 
 ## Overview
 
-RADARO is a modern, responsive website for a professional construction services company. The site showcases the company's services, projects, testimonials, and provides a contact form for potential clients to reach out.
+RADARO is a modern, responsive website for a professional construction services company. The site showcases the company's services, projects, testimonials, and provides a contact form for potential clients to reach out. The site is built with Next.js and Tailwind CSS, and is deployed on Vercel. Preview live site [here](https://radaro.vercel.app/).
 
 ## Features
 
-- **Modern UI Design**: Clean, professional interface with consistent styling and a red accent color (#EF4444)
+- **Modern UI Design**: Clean, professional interface with consistent styling and a red accent color
 - **Responsive Layout**: Fully responsive design that works across all device sizes
 - **Interactive Components**:
   - Hero section with call-to-action buttons
@@ -16,7 +16,6 @@ RADARO is a modern, responsive website for a professional construction services 
   - Projects showcase
   - Client testimonials carousel
   - Interactive contact form with email functionality
-  - Google Maps integration
 - **Smooth Scrolling**: Enhanced navigation with smooth scrolling to different sections
 - **Email Integration**: Contact form with server-side validation and email sending capability
 - **Toast Notifications**: User feedback through toast notifications for form submissions
@@ -80,16 +79,18 @@ RADARO is a modern, responsive website for a professional construction services 
 │   │   └── contact/      # Contact form API
 │   └── page.tsx          # Main page
 ├── components/           # React components
+│   ├── About.tsx         # About section component
 │   ├── Contact.tsx       # Contact form component
 │   ├── Footer.tsx        # Footer component
-│   ├── HeroSection.tsx   # Hero section component
+│   ├── Hero.tsx          # Hero section component
 │   ├── Navigation.tsx    # Navigation component
 │   ├── Projects.tsx      # Projects component
 │   ├── Services.tsx      # Services component
 │   └── Testimonials.tsx  # Testimonials component
+├── contexts/             # React contexts
 ├── lib/                  # Utility functions
 ├── public/               # Static assets
-└── styles/               # Global styles
+├── data/                 # Static data
 ```
 
 ## Deployment
@@ -109,9 +110,8 @@ npm start
 
 The contact form sends emails using Nodemailer. For Gmail accounts, you'll need to:
 
-1. Enable 2-Factor Authentication on your Google account
-2. Generate an App Password (Google Account → Security → App Passwords)
-3. Use this App Password in your .env file
+1. Generate an App Password (Google Account → Security → App Passwords)
+2. Use this App Password in your .env file
 
 ## License
 
@@ -119,4 +119,4 @@ The contact form sends emails using Nodemailer. For Gmail accounts, you'll need 
 
 ## Contact
 
-For any inquiries about this project, please contact [info@radaro.sk](mailto:info@radaro.sk).
+For any inquiries about this project, please contact [andrej.cicmansky@gmail.com](mailto:andrej.cicmansky@gmail.com).

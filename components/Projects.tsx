@@ -11,7 +11,7 @@ import { SectionContainer } from "@/components/ui/SectionContainer"
 import { SectionHeader } from "@/components/ui/SectionHeader"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
-export const ProjectSection = () => {
+export const Projects = () => {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)

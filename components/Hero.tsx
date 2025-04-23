@@ -9,7 +9,7 @@ import { fadeInUp, fadeIn, hoverGrow } from "@/lib/animation-presets"
 import { useLogoVisibility } from "@/contexts/LogoVisibilityContext"
 import { useIntersectionObserver } from "usehooks-ts"
 
-export const HeroSection = () => {
+export const Hero = () => {
   const { setIsHeroLogoVisible } = useLogoVisibility()
   const { isIntersecting, ref } = useIntersectionObserver({
     threshold: 0.6,
