@@ -102,6 +102,25 @@ export const Footer = () => {
         </motion.div>
 
         <motion.div
+          className="w-full mt-4 mb-4 flex justify-center"
+          {...fadeInUp()}
+        >
+          <span className="text-sm text-gray-300 text-center">
+            <span className="font-semibold text-white">RADARO</span> hrdo podporuje{' '}
+            <motion.a
+              href="https://upracme.sk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-radaro-red font-semibold transition-colors"
+              {...hoverGrow()}
+            >
+              Upracme.sk
+            </motion.a>
+            {' '}– iniciatívu dobrovoľného čistenia odpadkov
+          </span>
+        </motion.div>
+
+        <motion.div
           className="border-t border-gray-800 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center"
           {...fadeInUp()}
         >
