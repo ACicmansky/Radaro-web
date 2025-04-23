@@ -38,20 +38,20 @@ export const About = () => {
                 </motion.div>
                 <motion.h3 
                   className="text-2xl font-bold text-gray-800 mt-5"
-                  {...fadeInUp(0.7)}
+                  {...fadeInUp(0.5)}
                 >
                   Ing. Radovan Kramár
                 </motion.h3>
                 <motion.p 
                   className="text-body-sm text-subtle"
-                  {...fadeInUp(0.8)}
+                  {...fadeInUp(0.6)}
                 >
                   zakladateľ
                 </motion.p>
                 
                 <motion.div 
                   className="flex space-x-4 mt-6"
-                  {...fadeInUp(0.9)}
+                  {...fadeInUp(0.7)}
                 >
                   <motion.a 
                     href="mailto:info@radaro.sk" 
@@ -85,13 +85,13 @@ export const About = () => {
                   Profesionálne stavebné služby
                 </motion.h4>
                 <div className="text-body-lg space-y-6">
-                  <motion.p {...fadeInUp(0.7)}>
+                  <motion.p {...fadeInUp(0.6)}>
 
                     Máme dlhoročné skúsenosti s technickým dozorom a riadením výstavby rezidenčných a polyfunkčných projektov
                     v Bratislave a okolí. Ako autorizovaní stavební inžinieri pomáhame odhaliť skryté vady, predchádzať chybám
                     a šetriť náklady.
                   </motion.p>
-                  <motion.p {...fadeInUp(0.8)}>
+                  <motion.p {...fadeInUp(0.6)}>
 
                     Ponúkame stavebný dozor, manažment výstavby, technické obhliadky, audity kvality a
                     poradenstvo pri kúpe nehnuteľností. Veríme v profesionálny prístup, moderné technológie a riešenia, ktoré
@@ -100,7 +100,7 @@ export const About = () => {
                   <motion.button 
                     onClick={() => scrollToSection('contact')} 
                     className="mt-6 px-8 py-3 bg-radaro-red hover:bg-radaro-red-hover text-white rounded-md font-medium transition-colors"
-                    {...fadeInUp(0.9)}
+                    {...fadeInUp(0.6)}
                     {...hoverGrow()}
                   >
                     Kontaktujte nás pre cenovú ponuku
