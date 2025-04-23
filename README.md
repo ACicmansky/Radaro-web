@@ -1,6 +1,6 @@
 # RADARO - Profesionálne stavebné služby
 
-![RADARO Logo](/public/images/other/Logo.png)
+![RADARO Logo](/public/images/other/hero-logo.PNG)
 
 ## Overview
 
