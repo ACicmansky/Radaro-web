@@ -116,7 +116,7 @@ export const Footer = () => {
             >
               Upracme.sk
             </motion.a>
-            {' '}– iniciatívu dobrovoľného čistenia odpadkov
+            {' '}– Dobrovoľnícku iniciatívu odstraňovania nelegálnych skládok
           </span>
         </motion.div>
 
